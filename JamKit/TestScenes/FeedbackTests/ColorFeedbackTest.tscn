@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://TestSubjects/TestDummyBase.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Feedback/FeedbackRunner.gd" type="Script" id=2]
-[ext_resource path="res://Feedback/ColorFeedback2D.gd" type="Script" id=3]
+[ext_resource path="res://JamKit/TestSubjects/TestDummyBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://JamKit/Feedback/FeedbackRunner.gd" type="Script" id=2]
+[ext_resource path="res://JamKit/Feedback/ColorFeedback2D.gd" type="Script" id=3]
 
 [node name="TestDummyBase" instance=ExtResource( 1 )]
 
