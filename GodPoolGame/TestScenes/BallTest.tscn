@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GodPoolGame/TestSubjects/TestBall.tscn" type="PackedScene" id=1]
-[ext_resource path="res://PullBackComponent.gd" type="Script" id=2]
 [ext_resource path="res://GodPoolGame/TestScenes/BallTest.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -13,23 +12,17 @@ extents = Vector2( 500, 10 )
 [node name="BallTest" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="PullBackComponent" type="Node" parent="."]
-script = ExtResource( 2 )
-
 [node name="PlayerBall" parent="." instance=ExtResource( 1 )]
 modulate = Color( 1, 0.277344, 0.277344, 1 )
 position = Vector2( 358, 257 )
-is_under_control = false
 
 [node name="TestBall2" parent="." instance=ExtResource( 1 )]
 modulate = Color( 0.431373, 0.705882, 0.996078, 1 )
 position = Vector2( 755, 293 )
-is_under_control = false
 
 [node name="TestBall3" parent="." instance=ExtResource( 1 )]
 modulate = Color( 0.956863, 1, 0.231373, 1 )
 position = Vector2( 512, 439 )
-is_under_control = false
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -57,4 +50,4 @@ shape = SubResource( 2 )
 position = Vector2( 516, 603 )
 shape = SubResource( 2 )
 
-[connection signal="pull_back_released" from="PullBackComponent" to="." method="_on_PullBackComponent_pull_back_released"]
+[editable path="PlayerBall"]
