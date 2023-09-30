@@ -29,6 +29,7 @@ func _ready():
 	
 	
 func _process(delta):
+#	print(str(Engine.get_frames_per_second()))  
 	if Input.is_action_just_pressed("ui_accept"):
 		_set_boundary_scale(universe_root.scale.x - 0.1)
 
