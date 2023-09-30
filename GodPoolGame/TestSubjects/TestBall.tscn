@@ -43,5 +43,4 @@ texture = ExtResource( 1 )
 [connection signal="mouse_entered" from="." to="." method="_on_TestBall_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_TestBall_mouse_exited"]
 [connection signal="pull_back_released" from="PullBackComponent" to="." method="_on_PullBackComponent_pull_back_released"]
-[connection signal="pull_back_started" from="PullBackComponent" to="." method="_on_PullBackComponent_pull_back_started"]
 [connection signal="pulling_back" from="PullBackComponent" to="." method="_on_PullBackComponent_pulling_back"]

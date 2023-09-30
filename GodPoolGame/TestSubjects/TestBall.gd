@@ -45,7 +45,7 @@ func set_pull_back_trail(direction, power_ratio):
 		
 	var length: float = Vector2.ZERO.distance_to(direction)
 	var angle = Vector2.ZERO.angle_to_point(direction) - 1.5708
-	print(length)
+#	print(length)
 	pull_back_trail_container.scale = Vector2(.1, length/100)
 	pull_back_trail_container.rotation = angle
 	pull_back_trail_container.position = - direction * .5
