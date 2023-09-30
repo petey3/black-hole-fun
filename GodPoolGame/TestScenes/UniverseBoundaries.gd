@@ -6,6 +6,8 @@ class_name UniverseBoundaries
 
 export (float, 0.1, 1) var boundary_scale = 1 
 
+onready var camera = $Camera2D
+
 onready var universe_root = $UniverseRoot
 
 onready var top_half = $UniverseRoot/TopHalf
@@ -21,6 +23,8 @@ var universe_center = Vector2.ZERO
 
 func _ready():
 	universe_center = get_viewport_rect().size / 2
+	camera.position = universe_center
+	camera.current = true
 	_print()
 	
 	
@@ -66,10 +70,16 @@ func _is_within_padding(value: int, precise_boundary: int, padding: int) -> bool
 
 
 func _set_boundary_scale(new_scale: float):
-	scale_feedback.scale_change = Vector2(new_scale, new_scale)
+	var new_scale_vector = Vector2(new_scale, new_scale)
+	scale_feedback.scale_change = new_scale_vector
 	var full_rect_size = get_viewport_rect().size
 	var scaled_rect_size = full_rect_size * new_scale
 	var size_delta = Vector2(full_rect_size.x - scaled_rect_size.x, full_rect_size.y - scaled_rect_size.y)
 	transform_feedback.position_change = size_delta / 2
 	
 	feedback_runner.execute_feedbacks()
+	var inline_timer = InlineTimer.wait(self, 1)
+	yield(inline_timer.timer, inline_timer.timeout)
+	
+	var tween = create_tween()
+	tween.tween_property(camera, "zoom", new_scale_vector, 1)
