@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Presentation/UI/UIPresentationService.gd" type="Script" id=1]
+[ext_resource path="res://Presentation/PresentationServices.gd" type="Script" id=2]
+[ext_resource path="res://Presentation/Contexts/ContextService.gd" type="Script" id=3]
+
+[node name="PresentationServices" type="Node"]
+script = ExtResource( 2 )
+
+[node name="ContextService" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="UIService" type="Node" parent="."]
+script = ExtResource( 1 )

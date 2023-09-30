@@ -1,0 +1,281 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "BaseFeedback",
+"language": "GDScript",
+"path": "res://JamKit/Feedback/BaseFeedback.gd"
+}, {
+"base": "TweenFeedback2D",
+"class": "BaseTweenTransformFeedback2D",
+"language": "GDScript",
+"path": "res://JamKit/Feedback/Transform/BaseTweenTransformFeedback2D.gd"
+}, {
+"base": "Node",
+"class": "BoolSequencer",
+"language": "GDScript",
+"path": "res://JamKit/Sequencers/Bool/BoolSequencer.gd"
+}, {
+"base": "TweenFeedback2D",
+"class": "ColorFeedback2D",
+"language": "GDScript",
+"path": "res://JamKit/Feedback/ColorFeedback2D.gd"
+}, {
+"base": "Node",
+"class": "Context",
+"language": "GDScript",
+"path": "res://JamKit/Presentation/Contexts/Context.gd"
+}, {
+"base": "Node",
+"class": "ContextPresentationService",
+"language": "GDScript",
+"path": "res://JamKit/Presentation/Contexts/ContextService.gd"
+}, {
+"base": "IntSequencer",
+"class": "CounterSequencer",
+"language": "GDScript",
+"path": "res://JamKit/Sequencers/Int/CounterSequencer.gd"
+}, {
+"base": "Event",
+"class": "DictionaryEvent",
+"language": "GDScript",
+"path": "res://JamKit/Events/DictionaryEvent.gd"
+}, {
+"base": "Node",
+"class": "DirectionCalculator2D",
+"language": "GDScript",
+"path": "res://JamKit/Components/Movement/Direction/DirectionCalculator2D.gd"
+}, {
+"base": "Object",
+"class": "Event",
+"language": "GDScript",
+"path": "res://JamKit/Events/Event.gd"
+}, {
+"base": "Node",
+"class": "EventDispatchService",
+"language": "GDScript",
+"path": "res://JamKit/Events/EventDispatchService.gd"
+}, {
+"base": "Object",
+"class": "EventSubscription",
+"language": "GDScript",
+"path": "res://JamKit/Events/EventSubscription.gd"
+}, {
+"base": "Node",
+"class": "FeedbackRunner",
+"language": "GDScript",
+"path": "res://JamKit/Feedback/FeedbackRunner.gd"
+}, {
+"base": "Node",
+"class": "FloatSequencer",
+"language": "GDScript",
+"path": "res://JamKit/Sequencers/Float/FloatSequencer.gd"
+}, {
+"base": "Event",
+"class": "GreenEvent",
+"language": "GDScript",
+"path": "res://JamKit/TestScenes/EventTests/GreenEvent.gd"
+}, {
+"base": "Reference",
+"class": "InlineTimer",
+"language": "GDScript",
+"path": "res://JamKit/Utilities/InlineTimer.gd"
+}, {
+"base": "Node",
+"class": "IntSequencer",
+"language": "GDScript",
+"path": "res://JamKit/Sequencers/Int/IntSequencer.gd"
+}, {
+"base": "Node",
+"class": "MovementComponent2D",
+"language": "GDScript",
+"path": "res://JamKit/Components/Movement/MovementComponent2D.gd"
+}, {
+"base": "Object",
+"class": "Normalizer",
+"language": "GDScript",
+"path": "res://JamKit/Utilities/Normalizer.gd"
+}, {
+"base": "Sprite",
+"class": "PurpleSprite",
+"language": "GDScript",
+"path": "res://JamKit/TestScenes/EventTests/PurpleSprite.gd"
+}, {
+"base": "BaseFeedback",
+"class": "QueueFreeFeedback",
+"language": "GDScript",
+"path": "res://JamKit/Feedback/QueueFreeFeedback.gd"
+}, {
+"base": "Reference",
+"class": "Random",
+"language": "GDScript",
+"path": "res://JamKit/Utilities/Random.gd"
+}, {
+"base": "UI",
+"class": "RandomColorOverlay",
+"language": "GDScript",
+"path": "res://JamKit/TestScenes/PresentationTests/UIScreens/RandomColorOverlay.gd"
+}, {
+"base": "Sprite",
+"class": "RedSprite",
+"language": "GDScript",
+"path": "res://JamKit/TestScenes/EventTests/RedSprite.gd"
+}, {
+"base": "BaseTweenTransformFeedback2D",
+"class": "RotateFeedback2D",
+"language": "GDScript",
+"path": "res://JamKit/Feedback/Transform/RotateFeedback2D.gd"
+}, {
+"base": "BaseTweenTransformFeedback2D",
+"class": "ScaleFeedback2D",
+"language": "GDScript",
+"path": "res://JamKit/Feedback/Transform/ScaleFeedback2D.gd"
+}, {
+"base": "Sprite",
+"class": "SpawnableDummy",
+"language": "GDScript",
+"path": "res://JamKit/TestSubjects/SpawnableDummy.gd"
+}, {
+"base": "Node2D",
+"class": "Spawner2D",
+"language": "GDScript",
+"path": "res://JamKit/Gadgets/Spawner/Spawner2D.gd"
+}, {
+"base": "Node2D",
+"class": "SpawnerDummy",
+"language": "GDScript",
+"path": "res://JamKit/TestSubjects/SpawnerDummy.gd"
+}, {
+"base": "Node",
+"class": "SpeedCalculator",
+"language": "GDScript",
+"path": "res://JamKit/Components/Movement/Speed/SpeedCalculator.gd"
+}, {
+"base": "Node",
+"class": "SpinStopCalculator",
+"language": "GDScript",
+"path": "res://JamKit/Transformers/Rotation/SpinStopCalculator.gd"
+}, {
+"base": "Node",
+"class": "Spinner",
+"language": "GDScript",
+"path": "res://JamKit/Transformers/Rotation/Spinner.gd"
+}, {
+"base": "BoolSequencer",
+"class": "ToggleSequencer",
+"language": "GDScript",
+"path": "res://JamKit/Sequencers/Bool/ToggleSequencer.gd"
+}, {
+"base": "BaseTweenTransformFeedback2D",
+"class": "TransformFeedback2D",
+"language": "GDScript",
+"path": "res://JamKit/Feedback/Transform/TransformFeedback2D.gd"
+}, {
+"base": "BaseFeedback",
+"class": "TweenFeedback",
+"language": "GDScript",
+"path": "res://JamKit/Feedback/TweenFeedback.gd"
+}, {
+"base": "TweenFeedback",
+"class": "TweenFeedback2D",
+"language": "GDScript",
+"path": "res://JamKit/Feedback/TweenFeedback2D.gd"
+}, {
+"base": "Control",
+"class": "UI",
+"language": "GDScript",
+"path": "res://JamKit/Presentation/UI/UI.gd"
+}, {
+"base": "Node",
+"class": "UIPresentationService",
+"language": "GDScript",
+"path": "res://JamKit/Presentation/UI/UIPresentationService.gd"
+}, {
+"base": "Node",
+"class": "ValuePoolComponent",
+"language": "GDScript",
+"path": "res://JamKit/Components/ValuePool/ValuePoolComponent.gd"
+}, {
+"base": "DirectionCalculator2D",
+"class": "WASDDirectionCalculator2D",
+"language": "GDScript",
+"path": "res://JamKit/Components/Movement/Direction/WASDDirectionCalculator2D.gd"
+}, {
+"base": "FloatSequencer",
+"class": "WaveSequencer",
+"language": "GDScript",
+"path": "res://JamKit/Sequencers/Float/WaveSequencer.gd"
+} ]
+_global_script_class_icons={
+"BaseFeedback": "",
+"BaseTweenTransformFeedback2D": "",
+"BoolSequencer": "",
+"ColorFeedback2D": "",
+"Context": "",
+"ContextPresentationService": "",
+"CounterSequencer": "",
+"DictionaryEvent": "",
+"DirectionCalculator2D": "",
+"Event": "",
+"EventDispatchService": "",
+"EventSubscription": "",
+"FeedbackRunner": "",
+"FloatSequencer": "",
+"GreenEvent": "",
+"InlineTimer": "",
+"IntSequencer": "",
+"MovementComponent2D": "",
+"Normalizer": "",
+"PurpleSprite": "",
+"QueueFreeFeedback": "",
+"Random": "",
+"RandomColorOverlay": "",
+"RedSprite": "",
+"RotateFeedback2D": "",
+"ScaleFeedback2D": "",
+"SpawnableDummy": "",
+"Spawner2D": "",
+"SpawnerDummy": "",
+"SpeedCalculator": "",
+"SpinStopCalculator": "",
+"Spinner": "",
+"ToggleSequencer": "",
+"TransformFeedback2D": "",
+"TweenFeedback": "",
+"TweenFeedback2D": "",
+"UI": "",
+"UIPresentationService": "",
+"ValuePoolComponent": "",
+"WASDDirectionCalculator2D": "",
+"WaveSequencer": ""
+}
+
+[application]
+
+config/name="Temp"
+config/icon="res://icon.png"
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

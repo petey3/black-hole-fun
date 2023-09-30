@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/Arial-Narrow.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://TestScenes/PresentationTests/UIScreens/RandomColorOverlay.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.611765 )
+
+[node name="ColorCenter" type="ColorRect" parent="."]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+
+[node name="Label" type="Label" parent="ColorCenter"]
+modulate = Color( 0.0470588, 0.00784314, 0.00784314, 1 )
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.6
+custom_fonts/font = SubResource( 1 )
+text = "Press \"+\" to add another overlay
+Press \"-\" to dismiss this overlay
+Press \"delete/backspace\" to dismiss the full stack
+Or use the buttons below"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorCenter"]
+anchor_left = 0.3
+anchor_top = 0.65
+anchor_right = 0.7
+anchor_bottom = 0.65
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="Button" type="Button" parent="ColorCenter/HBoxContainer"]
+margin_right = 181.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Dismiss"
+
+[node name="Button2" type="Button" parent="ColorCenter/HBoxContainer"]
+margin_left = 185.0
+margin_right = 367.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Add Another Overlay"
+
+[connection signal="pressed" from="ColorCenter/HBoxContainer/Button" to="." method="_on_dismiss_pressed"]
+[connection signal="pressed" from="ColorCenter/HBoxContainer/Button2" to="." method="_on_present_another_overlay_pressed"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Feedback/FeedbackRunner.gd" type="Script" id=1]
+[ext_resource path="res://TestSubjects/TestDummyBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Feedback/Transform/ScaleFeedback2D.gd" type="Script" id=3]
+[ext_resource path="res://Feedback/ColorFeedback2D.gd" type="Script" id=4]
+[ext_resource path="res://Feedback/Transform/RotateFeedback2D.gd" type="Script" id=5]
+
+[node name="MultiFeedbackTest" instance=ExtResource( 2 )]
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 195, 124 )
+
+[node name="FeedbackRunner" type="Node" parent="." index="1"]
+script = ExtResource( 1 )
+
+[node name="RotateFeedback2D" type="Node" parent="FeedbackRunner" index="0"]
+script = ExtResource( 5 )
+TargetPath = NodePath("../../Sprite")
+run_time = 0.2
+return_time = 0.2
+rotation_change = 30.0
+
+[node name="ScaleFeedback2D" type="Node" parent="FeedbackRunner" index="1"]
+script = ExtResource( 3 )
+TargetPath = NodePath("../../Sprite")
+run_time = 0.2
+return_time = 0.2
+change_mode = 1
+value_mode = 2
+scale_change = Vector2( 2, 2 )
+
+[node name="ColorFeedback2D" type="Node" parent="FeedbackRunner" index="2"]
+script = ExtResource( 4 )
+TargetPath = NodePath("../../Sprite")
+run_time = 0.2
+return_time = 0.2
+color = Color( 1, 0, 0, 1 )

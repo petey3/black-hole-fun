@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://TestSubjects/FloatDummy.tscn" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Context
+
+func context_id_string() -> String:
+	return \"context.gameplay\"
+
+
+func _on_back_button_pressed():
+	change_context(\"title\") 
+"
+
+[node name="Node" type="Node"]
+script = SubResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Button" type="Button" parent="Control"]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.1
+anchor_bottom = 0.1
+margin_right = 12.0
+margin_bottom = 20.0
+text = "BACK"
+
+[node name="FloatDummy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 499, 270 )
+
+[node name="XSequencer" parent="FloatDummy" index="1"]
+amplitude = 350.0
+period = 2.0
+
+[node name="YSequencer" parent="FloatDummy" index="2"]
+amplitude = 250.0
+period = 1.0
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_back_button_pressed"]
+
+[editable path="FloatDummy"]

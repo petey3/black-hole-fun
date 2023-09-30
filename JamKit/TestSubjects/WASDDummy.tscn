@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Components/Movement/MovementComponent2D.gd" type="Script" id=2]
+[ext_resource path="res://Components/Movement/Speed/SpeedCalculator.gd" type="Script" id=3]
+[ext_resource path="res://Components/Movement/Direction/WASDDirectionCalculator2D.gd" type="Script" id=4]
+[ext_resource path="res://TestSubjects/WASDDummy.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30, 30 )
+
+[node name="Node2D" type="KinematicBody2D"]
+script = ExtResource( 5 )
+
+[node name="MovementComponent2D" type="Node" parent="."]
+script = ExtResource( 2 )
+speed_calculator_path = NodePath("Speed")
+direction_calculator_path = NodePath("Direction")
+
+[node name="Speed" type="Node" parent="MovementComponent2D"]
+script = ExtResource( 3 )
+top_speed = 500.0
+has_acceleration = true
+acceleration = 2500.0
+deacceleration = 2500.0
+
+[node name="Direction" type="Node" parent="MovementComponent2D"]
+script = ExtResource( 4 )
+movement_freedom = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

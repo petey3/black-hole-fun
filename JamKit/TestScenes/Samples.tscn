@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://TestSubjects/CounterDummy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://TestSubjects/ToggleDummy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://TestSubjects/FloatDummy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TestSubjects/SpinDummy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://TestSubjects/SpawnerDummy.tscn" type="PackedScene" id=5]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="FloatDummy" parent="." instance=ExtResource( 3 )]
+modulate = Color( 0, 0.294118, 0.803922, 1 )
+position = Vector2( 255, 202 )
+
+[node name="ToggleDummy" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.129412, 0.839216, 0.141176, 1 )
+position = Vector2( 469, 205 )
+
+[node name="CounterDummy" parent="." instance=ExtResource( 1 )]
+modulate = Color( 1, 0.0862745, 0.0862745, 1 )
+position = Vector2( 701, 203 )
+
+[node name="SpinDummy" parent="." instance=ExtResource( 4 )]
+modulate = Color( 1, 0.913725, 0, 1 )
+position = Vector2( 254, 381 )
+
+[node name="SpawnerDummy" parent="." instance=ExtResource( 5 )]
+modulate = Color( 1, 0.654902, 0, 1 )
+position = Vector2( 464, 380 )

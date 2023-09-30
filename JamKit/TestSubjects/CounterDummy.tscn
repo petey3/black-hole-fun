@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Sequencers/Int/CounterSequencer.gd" type="Script" id=2]
+[ext_resource path="res://TestSubjects/CounterDummy.gd" type="Script" id=3]
+
+[node name="CounterDummy" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="CounterSequencer" type="Node" parent="."]
+script = ExtResource( 2 )
+count_to_value = 3
+time_between_increments = 0.75
+zero_index = false
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
