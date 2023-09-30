@@ -1,8 +1,6 @@
 extends RigidBody2D
 
 
-export (float) var force_max = 30
-
 var velocity = Vector2.ZERO
 var direction = Vector2.ZERO
 
@@ -17,9 +15,8 @@ func _ready():
 func _process(delta):
 	rotation = 0
 
-func _on_PullBackComponent_pull_back_released(direction, power_ratio):
-	var force = power_ratio * force_max
-	apply_impulse(Vector2.ZERO, direction * force)
+func _on_PullBackComponent_pull_back_released(force):
+	apply_impulse(Vector2.ZERO, force)
 	pointer_sprite.visible = false
 	pointer_sprite.rotation = 0
 	pull_back_trail_container.visible = false
@@ -45,7 +42,7 @@ func set_pull_back_trail(direction, power_ratio):
 		
 	var length: float = Vector2.ZERO.distance_to(direction)
 	var angle = Vector2.ZERO.angle_to_point(direction) - 1.5708
-#	print(length)
+	print(length)
 	pull_back_trail_container.scale = Vector2(.1, length/100)
 	pull_back_trail_container.rotation = angle
 	pull_back_trail_container.position = - direction * .5

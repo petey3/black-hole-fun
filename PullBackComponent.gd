@@ -2,10 +2,11 @@ extends Node
 class_name PullBackComponent
 
 signal pull_back_started()
-signal pull_back_released(direction, power_ratio)
-signal pulling_back(direction, power_ratio)
+signal pull_back_released(force)
+signal pulling_back(force, power_ratio)
 
 export (float) var max_power_distance = 100
+export (float) var force_multiplier = 30
 
 var down_position = Vector2.ZERO
 var up_position = Vector2.ZERO
@@ -29,7 +30,6 @@ func _input(event):
 		elif is_pulling_back and not event.pressed:
 			up_position = event.position
 			is_pulling_back = false
-			var direction: Vector2 = down_position - up_position
-			direction = direction.limit_length(max_power_distance)
-			var ratio = direction.length() / max_power_distance
-			emit_signal("pull_back_released", direction, ratio)
+			var force: Vector2 = down_position - up_position
+			force = force.limit_length(max_power_distance)
+			emit_signal("pull_back_released", force * force_multiplier)
