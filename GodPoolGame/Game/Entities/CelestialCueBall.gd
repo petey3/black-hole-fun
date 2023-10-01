@@ -9,6 +9,8 @@ onready var flick_timer = $PullBackTrail/FlickTimer
 var velocity = Vector2.ZERO
 var direction = Vector2.ZERO
 var stored_force = Vector2.ZERO
+var shot_start_pos = Vector2.ZERO
+
 
 func _ready():
 	._ready()
@@ -37,6 +39,7 @@ func _physics_process(delta):
 
 
 func _on_pull_back_released(force):
+	shot_start_pos = position
 	stored_force = force
 	pointer_sprite.visible = false
 	pointer_sprite.rotation = 0
@@ -84,7 +87,19 @@ func _on_flick_timer_timeout():
 	pull_back_trail_container.visible = false
 	pull_back_trail_container.rotation = 0
 		
+
+func _add_to_groups():
+	add_to_group(GodPoolGameConstants.GROUP_ID_CELESTIAL_BODY)
+	add_to_group(GodPoolGameConstants.GROUP_ID_BLACKHOLE_MOVEABLE)
+	add_to_group(GodPoolGameConstants.GROUP_ID_BLACKHOLE_SWALLOWABLE)
+
 		
 func _on_destroy():
 	queue_free()
 
+func _on_swallowed_by_blackhole():
+	linear_velocity = Vector2.ZERO
+	velocity = Vector2.ZERO
+	position = shot_start_pos
+
+	

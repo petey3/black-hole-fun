@@ -16,7 +16,7 @@ position = Vector2( 435, 656 )
 
 [node name="Green Planet" parent="Entities" instance=ExtResource( 4 )]
 modulate = Color( 0.054902, 1, 0.466667, 1 )
-position = Vector2( 1094, 561 )
+position = Vector2( 1100, 242 )
 __meta__ = {
 "_edit_group_": true
 }
