@@ -10,8 +10,8 @@ script = ExtResource( 6 )
 
 [node name="LevelController" parent="." instance=ExtResource( 1 )]
 
-[node name="Level-Root" type="Node2D" parent="."]
+[node name="UniverseBoundaries" parent="." instance=ExtResource( 2 )]
 
-[node name="UniverseBoundaries" parent="Level-Root" instance=ExtResource( 2 )]
+[node name="LevelRoot" type="Node2D" parent="."]
 
-[node name="Level 1" parent="Level-Root" instance=ExtResource( 3 )]
+[node name="Level 1" parent="LevelRoot" instance=ExtResource( 3 )]

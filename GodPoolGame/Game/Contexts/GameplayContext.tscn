@@ -14,4 +14,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="Gameplay-Context-UI" parent="Gameplay-Context-UI-Root" instance=ExtResource( 2 )]
+[node name="CanvasLayer" type="CanvasLayer" parent="Gameplay-Context-UI-Root"]
+
+[node name="Gameplay-Context-UI" parent="Gameplay-Context-UI-Root/CanvasLayer" instance=ExtResource( 2 )]
