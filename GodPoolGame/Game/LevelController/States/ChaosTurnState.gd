@@ -1,9 +1,11 @@
 extends State
 class_name ChaosTurnState
 
+const ID = "state.chaos_turn"
+
 func enter(properties := {}) -> void:
 	print("Entered CHAOS TURN STATE")
-	var level_state_event = LevelStateChangeEvent.new(false)
+	var level_state_event = LevelStateChangeEvent.new(ID, false)
 	EventServices.dispatch().broadcast(level_state_event)
 	
 	var universe_state_event = EnterNextUniverseStateEvent.new()

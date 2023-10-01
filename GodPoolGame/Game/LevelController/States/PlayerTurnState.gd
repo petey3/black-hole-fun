@@ -1,6 +1,8 @@
 extends State
 class_name PlayerTurnState
 
+const ID = "state.player_turn"
+
 var has_player_shot = false
 
 func _ready():
@@ -9,7 +11,7 @@ func _ready():
 func enter(properties := {}) -> void:
 	print("Entered PLAYER TURN STATE")
 	print("TODO: Update New Universe Line")
-	var level_state_event = LevelStateChangeEvent.new(true)
+	var level_state_event = LevelStateChangeEvent.new(ID, true)
 	EventServices.dispatch().broadcast(level_state_event)
 	
 	

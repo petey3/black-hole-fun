@@ -89,6 +89,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://JamKit/Sequencers/Float/FloatSequencer.gd"
 }, {
+"base": "Control",
+"class": "GameplayHUD",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Contexts/Gameplay-Context/UserInterface/GamplayHUD.gd"
+}, {
 "base": "Event",
 "class": "GreenEvent",
 "language": "GDScript",
@@ -296,6 +301,7 @@ _global_script_class_icons={
 "EventSubscription": "",
 "FeedbackRunner": "",
 "FloatSequencer": "",
+"GameplayHUD": "",
 "GreenEvent": "",
 "InlineTimer": "",
 "IntSequencer": "",
