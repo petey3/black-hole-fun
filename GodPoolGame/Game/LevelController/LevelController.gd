@@ -9,7 +9,3 @@ class_name LevelController
 # -- Player Turn
 # -- Chaos Turn
 # -- (Repeats)
-# End Level
-# Exit Level 
-
-onready var state_machine = $StateMachine

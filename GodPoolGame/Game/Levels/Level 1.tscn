@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://GodPoolGame/Game/Entities/WhiteHole.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GodPoolGame/TestSubjects/BlackHole.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GodPoolGame/Game/Entities/CelestialCueBall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GodPoolGame/Game/Entities/Planet.tscn" type="PackedScene" id=4]
@@ -12,21 +13,34 @@ script = ExtResource( 5 )
 
 [node name="Red Planet" parent="Entities" instance=ExtResource( 4 )]
 modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 435, 656 )
+position = Vector2( 540, 657 )
 
 [node name="Green Planet" parent="Entities" instance=ExtResource( 4 )]
 modulate = Color( 0.054902, 1, 0.466667, 1 )
-position = Vector2( 1100, 242 )
+position = Vector2( 808, 378 )
+__meta__ = {
+"_edit_group_": true
+}
+population = 100
+
+[node name="Blue Planet" parent="Entities" instance=ExtResource( 4 )]
+modulate = Color( 0.113725, 0.541176, 1, 1 )
+position = Vector2( 1097, 422 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Blue Planet" parent="Entities" instance=ExtResource( 4 )]
-modulate = Color( 0.113725, 0.541176, 1, 1 )
-position = Vector2( 690, 254 )
-
 [node name="CelestialCueBall" parent="Entities" instance=ExtResource( 3 )]
-position = Vector2( 354, 443 )
+position = Vector2( 528, 418 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="BlackHole" parent="Entities" instance=ExtResource( 2 )]
 position = Vector2( 1044, 693 )
+
+[node name="WhiteHole" parent="Entities" instance=ExtResource( 1 )]
+position = Vector2( 926, 342 )
+__meta__ = {
+"_edit_group_": true
+}

@@ -4,6 +4,7 @@ class_name PlayerTurnState
 const ID = "state.player_turn"
 
 var has_player_shot = false
+var has_triggered_first_frame = false
 
 func _ready():
 	EventServices.dispatch().subscribe(PlayerShot.ID, self, "_on_player_shot")
@@ -15,23 +16,28 @@ func enter(properties := {}) -> void:
 	EventServices.dispatch().broadcast(level_state_event)
 	
 	
+func update(delta):
+	if has_triggered_first_frame:
+		return
+		
+	GameplayServices.entities().create_level_info()
+	has_triggered_first_frame = true
+	
+	
 func physics_update(delta):
 	if not has_player_shot:
 		return
 	
 	var celestial_bodies = get_tree().get_nodes_in_group(GodPoolGameConstants.GROUP_ID_CELESTIAL_BODY)
 	
-	if celestial_bodies.size() == 1:
+	# return if bodies are still moving
+	if GameplayServices.entities().are_bodies_still_moving():
+		return
+		
+	if GameplayServices.entities().are_all_live_planets_saved():
+		state_machine.transition_to("WinConditionMetState")
+	elif GameplayServices.entities().are_all_live_planets_lost():
 		state_machine.transition_to("LossConditionMetState")
-	
-	for body in celestial_bodies:
-		var rigid_body := body as RigidBody2D
-		if not rigid_body:
-			continue
-			
-		if rigid_body.linear_velocity.length() > 0:
-#			print("Body Moving: " + body.name + " - " + str(rigid_body.linear_velocity.length()))
-			return
 	
 	has_player_shot = false
 	state_machine.transition_to("ChaosTurnState")

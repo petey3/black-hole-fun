@@ -1,6 +1,8 @@
 extends CelestialBody
 class_name CelestialCueBall
 
+var CueBallScenePath = "res://GodPoolGame/Game/Entities/CelestialCueBall.tscn"
+
 onready var pull_back_component = $PullBackComponent
 onready var pointer_sprite = $Pointer
 onready var pull_back_trail_container = $PullBackTrail
@@ -97,9 +99,12 @@ func _add_to_groups():
 func _on_destroy():
 	queue_free()
 
-func _on_swallowed_by_blackhole():
-	linear_velocity = Vector2.ZERO
-	velocity = Vector2.ZERO
-	position = shot_start_pos
 
-	
+func _on_swallowed_by_blackhole():
+	var scene_load = load(CueBallScenePath)
+	var scene_to_spawn = scene_load.instance()
+	scene_to_spawn.scale = self.scale
+	scene_to_spawn.linear_velocity = Vector2.ZERO
+	scene_to_spawn.position = shot_start_pos
+	self.get_parent().add_child(scene_to_spawn)
+	queue_free()

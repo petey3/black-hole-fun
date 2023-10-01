@@ -57,3 +57,8 @@ func _should_destroy_from_void() -> bool:
 func _on_swallowed_by_blackhole():
 	print("BLACKHOLED")
 	queue_free()
+
+
+func _on_collide_with_whitehole():
+	print("WHITEHOLED")
+	queue_free()

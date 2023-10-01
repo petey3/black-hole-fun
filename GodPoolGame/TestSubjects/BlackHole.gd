@@ -20,13 +20,14 @@ func _physics_process(delta):
 	for body in celestial_bodies:
 		var direction = position.direction_to(body.position)
 		var sq_magnitude = position.distance_squared_to(body.position)
-		body.global_position # load bearing be wary of removing
+#		body.global_position # load bearing be wary of removing
 		var is_in_kill_zone = sq_magnitude < kill_zone_radius * kill_zone_radius
 		var is_swallowable = body.is_in_group(GodPoolGameConstants.GROUP_ID_BLACKHOLE_SWALLOWABLE)
 		if is_in_kill_zone and is_swallowable:
 			if body.has_method(SWALLOW_METHOD):
 				body.call(SWALLOW_METHOD)
 			emit_signal("swallow_body", body)
+			continue
 		
 		var output_magnitude = (1 / (sq_magnitude + influence)) * (influence * strength)
 		if output_magnitude < dead_zone:

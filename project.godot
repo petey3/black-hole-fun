@@ -94,6 +94,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://GodPoolGame/Game/LevelController/Events/EnterNextUniverseStateEvent.gd"
 }, {
+"base": "Node",
+"class": "EntityServices",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/EntityServices.gd"
+}, {
 "base": "Object",
 "class": "Event",
 "language": "GDScript",
@@ -149,6 +154,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://GodPoolGame/Game/LevelController/LevelController.gd"
 }, {
+"base": "Object",
+"class": "LevelEntityInfo",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/LevelEntityInfo.gd"
+}, {
 "base": "Event",
 "class": "LevelStateChangeEvent",
 "language": "GDScript",
@@ -173,6 +183,11 @@ _global_script_classes=[ {
 "class": "Planet",
 "language": "GDScript",
 "path": "res://GodPoolGame/Game/Entities/Planet.gd"
+}, {
+"base": "Event",
+"class": "PlanetChangeEvent",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Entities/Events/PlanetChangeEvent.gd"
 }, {
 "base": "Event",
 "class": "PlayerShot",
@@ -324,6 +339,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://JamKit/Sequencers/Float/WaveSequencer.gd"
 }, {
+"base": "CelestialArea",
+"class": "WhiteHole",
+"language": "GDScript",
+"path": "res://WhiteHole.gd"
+}, {
 "base": "State",
 "class": "WinConditionMetState",
 "language": "GDScript",
@@ -347,6 +367,7 @@ _global_script_class_icons={
 "DictionaryEvent": "",
 "DirectionCalculator2D": "",
 "EnterNextUniverseStateEvent": "",
+"EntityServices": "",
 "Event": "",
 "EventDispatchService": "",
 "EventSubscription": "",
@@ -358,11 +379,13 @@ _global_script_class_icons={
 "InlineTimer": "",
 "IntSequencer": "",
 "LevelController": "",
+"LevelEntityInfo": "",
 "LevelStateChangeEvent": "",
 "LossConditionMetState": "",
 "MovementComponent2D": "",
 "Normalizer": "",
 "Planet": "",
+"PlanetChangeEvent": "",
 "PlayerShot": "",
 "PlayerTurnState": "",
 "PullBackComponent": "",
@@ -393,6 +416,7 @@ _global_script_class_icons={
 "ValuePoolComponent": "",
 "WASDDirectionCalculator2D": "",
 "WaveSequencer": "",
+"WhiteHole": "",
 "WinConditionMetState": ""
 }
 
@@ -407,6 +431,7 @@ config/icon="res://icon.png"
 EventServices="*res://JamKit/Events/EventServices.tscn"
 PresentationServices="*res://JamKit/Presentation/PresentationServices.tscn"
 GodPoolGameConstants="*res://GodPoolGame/Game/GodPoolGameConstants.tscn"
+GameplayServices="*res://GodPoolGame/Game/GameplayServices.tscn"
 MusicMan="*res://GodPoolGame/Game/MusicMan.tscn"
 
 [display]

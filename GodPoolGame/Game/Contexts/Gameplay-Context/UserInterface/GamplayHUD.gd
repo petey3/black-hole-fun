@@ -14,5 +14,9 @@ func _on_level_state_change(event: Event):
 		return
 		
 	if level_event.state_id == LossConditionMetState.ID:
+		label.text = "WASTED"
+		label.visible = true
+	elif level_event.state_id == WinConditionMetState.ID:
+		label.text = "WINNER"
 		label.visible = true
 

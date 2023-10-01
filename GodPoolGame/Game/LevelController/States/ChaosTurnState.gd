@@ -5,6 +5,10 @@ const ID = "state.chaos_turn"
 
 func enter(properties := {}) -> void:
 	print("Entered CHAOS TURN STATE")
+		
+	var intro_timer = InlineTimer.wait(self, 0.5)
+	yield(intro_timer.timer, intro_timer.timeout)
+
 	var level_state_event = LevelStateChangeEvent.new(ID, false)
 	EventServices.dispatch().broadcast(level_state_event)
 	
@@ -14,9 +18,9 @@ func enter(properties := {}) -> void:
 	var inline_timer = InlineTimer.wait(self, 3)
 	yield(inline_timer.timer, inline_timer.timeout)
 	
-	var celestial_bodies = get_tree().get_nodes_in_group(GodPoolGameConstants.GROUP_ID_CELESTIAL_BODY)
-	
-	if celestial_bodies.size() == 1:
+	if GameplayServices.entities().are_all_live_planets_saved():
+		state_machine.transition_to("WinConditionMetState")
+	elif GameplayServices.entities().are_all_live_planets_lost():
 		state_machine.transition_to("LossConditionMetState")
 	else:
 		state_machine.transition_to("PlayerTurnState")

@@ -57,3 +57,4 @@ func _on_level_state_changed(event: Event):
 		return
 		
 	is_enabled = level_event.is_player_in_control
+	is_draggable = is_enabled
