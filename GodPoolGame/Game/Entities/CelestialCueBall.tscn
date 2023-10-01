@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://GodPoolGame/Game/Entities/CelestialCueBall.gd" type="Script" id=1]
 [ext_resource path="res://GodPoolGame/Game/Entities/CelestialBody.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/test-ball.png" type="Texture" id=3]
-[ext_resource path="res://Assets/test-ring.png" type="Texture" id=4]
+[ext_resource path="res://Assets/cue-ball.png" type="Texture" id=4]
 [ext_resource path="res://Assets/arrow.png" type="Texture" id=5]
 [ext_resource path="res://JamKit/Feedback/FeedbackRunner.gd" type="Script" id=6]
 [ext_resource path="res://GodPoolGame/TestSubjects/PullBackTrail.gd" type="Script" id=7]
@@ -20,10 +19,6 @@ script = ExtResource( 1 )
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="Sprite" index="0"]
-scale = Vector2( 1.6, 1.6 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" parent="." index="1"]

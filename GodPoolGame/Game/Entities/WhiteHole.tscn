@@ -2,7 +2,7 @@
 
 [ext_resource path="res://GodPoolGame/Game/Entities/CelestialArea.tscn" type="PackedScene" id=1]
 [ext_resource path="res://WhiteHole.gd" type="Script" id=2]
-[ext_resource path="res://Assets/test-ring.png" type="Texture" id=3]
+[ext_resource path="res://Assets/white-hole.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 23.65
@@ -11,7 +11,7 @@ radius = 23.65
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
