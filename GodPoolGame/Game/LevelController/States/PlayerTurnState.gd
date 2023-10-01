@@ -30,8 +30,9 @@ func physics_update(delta):
 			continue
 			
 		if rigid_body.linear_velocity.length() > 0:
+			print("Body Moving: " + body.name + " - " + str(rigid_body.linear_velocity.length()))
 			return
-		
+	
 	has_player_shot = false
 	state_machine.transition_to("ChaosTurnState")
 

@@ -10,3 +10,4 @@ func has_life() -> bool:
 func _add_to_groups():
 	._add_to_groups()
 	add_to_group(GodPoolGameConstants.GROUP_ID_BLACKHOLE_SWALLOWABLE)
+	add_to_group(GodPoolGameConstants.GROUP_ID_VOID_SWALLOWABLE)

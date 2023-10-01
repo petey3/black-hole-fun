@@ -17,7 +17,6 @@ radius = 18.91
 [node name="CelestialCueBall" instance=ExtResource( 2 )]
 input_pickable = true
 script = ExtResource( 1 )
-linear_velocity_lower_limit = 15.0
 is_safe_from_void = true
 
 [node name="Sprite" parent="." index="0"]

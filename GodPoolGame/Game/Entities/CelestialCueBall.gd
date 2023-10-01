@@ -1,9 +1,6 @@
 extends CelestialBody
 class_name CelestialCueBall
 
-export (float) var linear_velocity_lower_limit = 15
-export (bool) var is_safe_from_void = false
-
 onready var pull_back_component = $PullBackComponent
 onready var pointer_sprite = $Pointer
 onready var pull_back_trail_container = $PullBackTrail
@@ -12,7 +9,6 @@ onready var flick_timer = $PullBackTrail/FlickTimer
 var velocity = Vector2.ZERO
 var direction = Vector2.ZERO
 var stored_force = Vector2.ZERO
-var should_destroy_on_contact = false
 
 func _ready():
 	._ready()
@@ -29,7 +25,6 @@ func _setup_signals():
 	pull_back_component.connect("pull_back_released", self, "_on_pull_back_released")
 	flick_timer.connect("timeout", self, "_on_flick_timer_timeout")
 	
-	self.connect("body_entered", self, "_on_body_entered")
 	self.connect("mouse_entered", self, "_on_mouse_entered")
 	self.connect("mouse_exited", self, "_on_mouse_exited")
 	
@@ -41,11 +36,6 @@ func _process(delta):
 func _physics_process(delta):
 	if linear_velocity.length() < linear_velocity_lower_limit:
 		linear_velocity = Vector2.ZERO
-			
-			
-func _on_body_entered(body: Node):
-	if should_destroy_on_contact and not is_safe_from_void:
-		_on_destroy()
 
 
 func _on_pull_back_released(force):

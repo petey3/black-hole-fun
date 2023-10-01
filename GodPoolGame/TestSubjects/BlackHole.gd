@@ -2,8 +2,8 @@ extends RigidBody2D
 
 signal swallow_ball(Ball)
 
-export (float) var strength = 100
-export (float) var influence = 1000
+export (float) var strength = 200
+export (float) var influence = 1500
 export (float) var dead_zone = 5
 export (float) var kill_zone_radius = 10
 
