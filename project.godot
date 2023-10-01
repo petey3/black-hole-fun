@@ -159,6 +159,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://GodPoolGame/Game/LevelEntityInfo.gd"
 }, {
+"base": "Node",
+"class": "LevelServices",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/LevelServices.gd"
+}, {
 "base": "Event",
 "class": "LevelStateChangeEvent",
 "language": "GDScript",
@@ -233,6 +238,11 @@ _global_script_classes=[ {
 "class": "RedSprite",
 "language": "GDScript",
 "path": "res://JamKit/TestScenes/EventTests/RedSprite.gd"
+}, {
+"base": "Event",
+"class": "ReloadedCurrentSceneEvent",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Events/ReloadedCurrentSceneEvent.gd"
 }, {
 "base": "BaseTweenTransformFeedback2D",
 "class": "RotateFeedback2D",
@@ -380,6 +390,7 @@ _global_script_class_icons={
 "IntSequencer": "",
 "LevelController": "",
 "LevelEntityInfo": "",
+"LevelServices": "",
 "LevelStateChangeEvent": "",
 "LossConditionMetState": "",
 "MovementComponent2D": "",
@@ -395,6 +406,7 @@ _global_script_class_icons={
 "Random": "",
 "RandomColorOverlay": "",
 "RedSprite": "",
+"ReloadedCurrentSceneEvent": "",
 "RotateFeedback2D": "",
 "ScaleFeedback2D": "",
 "SetupLevelState": "",

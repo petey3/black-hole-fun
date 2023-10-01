@@ -11,6 +11,7 @@ func create_level_info():
 	var starting_dead_planets = remaining_dead_planet_count()
 	self.level_entity_info = LevelEntityInfo.new(starting_live_planets, starting_dead_planets)
 	EventServices.dispatch().subscribe(PlanetChangeEvent.ID, self, "_on_planet_change_event")
+	EventServices.dispatch().subscribe(ReloadedCurrentSceneEvent.ID, self, "_on_reloaded_scene_event")
 	
 	
 func clear_level_info():
@@ -41,6 +42,10 @@ func _on_planet_change_event(event: Event):
 			if not level_entity_info:
 				return
 			level_entity_info.saved_live_planet_count += 1
+
+
+func _on_reloaded_scene_event(event: Event):
+	clear_level_info()
 
 
 func get_all_planets() -> Array:
