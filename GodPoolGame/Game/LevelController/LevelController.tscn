@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://GodPoolGame/States/StateMachine.gd" type="Script" id=1]
+[ext_resource path="res://GodPoolGame/Game/LevelController/States/PlayerTurnState.gd" type="Script" id=2]
+[ext_resource path="res://GodPoolGame/Game/LevelController/States/SetupLevel.gd" type="Script" id=3]
+[ext_resource path="res://GodPoolGame/Game/LevelController/States/ChaosTurnState.gd" type="Script" id=4]
+[ext_resource path="res://GodPoolGame/Game/LevelController/LevelController.gd" type="Script" id=5]
+
+[node name="LevelController" type="Node"]
+script = ExtResource( 5 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 1 )
+initial_state = NodePath("SetupLevelState")
+enter_initial_state_on_ready = true
+
+[node name="SetupLevelState" type="Node" parent="StateMachine"]
+script = ExtResource( 3 )
+
+[node name="PlayerTurnState" type="Node" parent="StateMachine"]
+script = ExtResource( 2 )
+
+[node name="ChaosTurnState" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )

@@ -1,19 +1,37 @@
 extends RigidBody2D
 
+export (float) var linear_velocity_lower_limit = 15
+export (bool) var is_safe_from_void = false
 
-var velocity = Vector2.ZERO
-var direction = Vector2.ZERO
-var stored_force = Vector2.ZERO
 onready var pull_back_component = $PullBackComponent
 onready var pointer_sprite = $Pointer
 onready var pull_back_trail_container = $PullBackTrail
 
+var velocity = Vector2.ZERO
+var direction = Vector2.ZERO
+var stored_force = Vector2.ZERO
+var should_destroy_on_contact = false
+
 func _ready():
+	EventServices.dispatch().subscribe(LevelStateChangeEvent.ID, self, "_on_level_state_changed")
+	self.connect("body_entered", self, "_on_body_entered")
 	pointer_sprite.visible = false
 	pull_back_trail_container.visible = false
-
+	
+	
 func _process(delta):
 	rotation = 0
+	
+
+func _physics_process(delta):
+	if linear_velocity.length() < linear_velocity_lower_limit:
+		linear_velocity = Vector2.ZERO
+			
+			
+func _on_body_entered(body: Node):
+	if should_destroy_on_contact and not is_safe_from_void:
+		queue_free()
+
 
 func _on_PullBackComponent_pull_back_released(force):
 	stored_force = force
@@ -59,4 +77,12 @@ func _on_FlickTimmer_timeout():
 	stored_force = Vector2.ZERO
 	pull_back_trail_container.visible = false
 	pull_back_trail_container.rotation = 0
+	
+	
+func _on_level_state_changed(event: Event):
+	var level_change_event := event as LevelStateChangeEvent
+	if not level_change_event:
+		return
+		
+	should_destroy_on_contact = not level_change_event.is_player_in_control
 

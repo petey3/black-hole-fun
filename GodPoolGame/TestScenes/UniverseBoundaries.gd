@@ -22,16 +22,12 @@ onready var transform_feedback = $FeedbackRunner/TransformFeedback2D
 var universe_center = Vector2.ZERO
 
 func _ready():
+	EventServices.dispatch().subscribe(EnterNextUniverseStateEvent.ID, self, "_on_universe_change_event")
+	
 	universe_center = get_viewport_rect().size / 2
 	camera.position = universe_center
 	camera.current = true
 	_print()
-	
-	
-func _process(delta):
-#	print(str(Engine.get_frames_per_second()))  
-	if Input.is_action_just_pressed("ui_accept"):
-		_set_boundary_scale(universe_root.scale.x - 0.1)
 
 
 func _print():
@@ -84,3 +80,7 @@ func _set_boundary_scale(new_scale: float):
 	
 	var tween = create_tween()
 	tween.tween_property(camera, "zoom", new_scale_vector, 1)
+
+
+func _on_universe_change_event(event: Event):
+	_set_boundary_scale(universe_root.scale.x - 0.1)

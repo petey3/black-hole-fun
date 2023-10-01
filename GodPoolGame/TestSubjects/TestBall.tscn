@@ -22,6 +22,8 @@ mass = 5.0
 physics_material_override = SubResource( 2 )
 gravity_scale = 0.0
 continuous_cd = 2
+contacts_reported = 10
+contact_monitor = true
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -44,7 +46,6 @@ position = Vector2( 1, 2 )
 script = ExtResource( 7 )
 
 [node name="HandSprite" type="Sprite" parent="PullBackTrail"]
-position = Vector2( 9, 41 )
 rotation = 1.5708
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 6 )

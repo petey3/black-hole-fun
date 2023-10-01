@@ -16,6 +16,7 @@ script = ExtResource( 3 )
 [node name="PlayerBall" parent="." groups=["Balls"] instance=ExtResource( 1 )]
 modulate = Color( 1, 0.277344, 0.277344, 1 )
 position = Vector2( 358, 257 )
+is_safe_from_void = true
 
 [node name="TestBall2" parent="." groups=["Balls"] instance=ExtResource( 1 )]
 modulate = Color( 0.431373, 0.705882, 0.996078, 1 )
