@@ -3,6 +3,9 @@ class_name Planet
 
 export (int) var population = 0 setget _set_population
 
+onready var sprite_face = $Sprite/Face
+onready var sprite_effect = $Sprite/Effect
+
 func _ready():
 	randomize()
 	var bases = [
@@ -27,12 +30,12 @@ func _ready():
 		preload("res://Assets/Planets/Faces/oh.png"),
 		preload("res://Assets/Planets/Faces/stinker.png"),
 	]
-	$Sprite.texture = bases[randi() % 5]
-	$Sprite/Effect.texture = effects[randi() % 5]
-	$Sprite/Face.texture = faces[randi() % 5]
+	sprite.texture = bases[randi() % 5]
+	sprite_effect.texture = effects[randi() % 5]
+	sprite_face.texture = faces[randi() % 5]
 	
 	if population == 0:
-		$Sprite/Face.visible = false
+		sprite.visible = false
 
 func has_life() -> bool:
 	return population > 0
@@ -40,13 +43,13 @@ func has_life() -> bool:
 
 func _set_population(p):
 	population = p
-	if $Sprite/Face == null:
+	if sprite_face == null:
 		return
 	
 	if population == 0:
-		$Sprite/Face.visible = false
+		sprite_effect.visible = false
 	else:
-		$Sprite/Face.visible = true
+		sprite_effect.visible = true
 
 
 func _add_to_groups():
