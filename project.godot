@@ -24,6 +24,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://JamKit/Sequencers/Bool/BoolSequencer.gd"
 }, {
+"base": "Node2D",
+"class": "Celestial",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Entities/Celestial.gd"
+}, {
+"base": "Celestial",
+"class": "CelestialArea",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Entities/CelestialArea.gd"
+}, {
+"base": "RigidBody2D",
+"class": "CelestialBody",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Entities/CelestialBody.gd"
+}, {
+"base": "CelestialBody",
+"class": "CelestialCueBall",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Entities/CelestialCueBall.gd"
+}, {
 "base": "State",
 "class": "ChaosTurnState",
 "language": "GDScript",
@@ -133,6 +153,11 @@ _global_script_classes=[ {
 "class": "Normalizer",
 "language": "GDScript",
 "path": "res://JamKit/Utilities/Normalizer.gd"
+}, {
+"base": "CelestialBody",
+"class": "Planet",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Entities/Planet.gd"
 }, {
 "base": "Event",
 "class": "PlayerShot",
@@ -279,11 +304,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://JamKit/Sequencers/Float/WaveSequencer.gd"
 }, {
-"base": "Node2D",
-"class": "WhiteHole",
-"language": "GDScript",
-"path": "res://GodPoolGame/Game/Entities/WhiteHole.gd"
-}, {
 "base": "State",
 "class": "WinConditionMetState",
 "language": "GDScript",
@@ -293,6 +313,10 @@ _global_script_class_icons={
 "BaseFeedback": "",
 "BaseTweenTransformFeedback2D": "",
 "BoolSequencer": "",
+"Celestial": "",
+"CelestialArea": "",
+"CelestialBody": "",
+"CelestialCueBall": "",
 "ChaosTurnState": "",
 "ColorFeedback2D": "",
 "Context": "",
@@ -315,6 +339,7 @@ _global_script_class_icons={
 "LossConditionMetState": "",
 "MovementComponent2D": "",
 "Normalizer": "",
+"Planet": "",
 "PlayerShot": "",
 "PlayerTurnState": "",
 "PullBackComponent": "",
@@ -344,7 +369,6 @@ _global_script_class_icons={
 "ValuePoolComponent": "",
 "WASDDirectionCalculator2D": "",
 "WaveSequencer": "",
-"WhiteHole": "",
 "WinConditionMetState": ""
 }
 

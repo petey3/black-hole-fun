@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://GodPoolGame/Game/Entities/CelestialCueBall.gd" type="Script" id=1]
+[ext_resource path="res://GodPoolGame/Game/Entities/CelestialBody.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/test-ball.png" type="Texture" id=3]
+[ext_resource path="res://Assets/test-ring.png" type="Texture" id=4]
+[ext_resource path="res://Assets/arrow.png" type="Texture" id=5]
+[ext_resource path="res://JamKit/Feedback/FeedbackRunner.gd" type="Script" id=6]
+[ext_resource path="res://GodPoolGame/TestSubjects/PullBackTrail.gd" type="Script" id=7]
+[ext_resource path="res://JamKit/Feedback/Transform/TransformFeedback2D.gd" type="Script" id=8]
+[ext_resource path="res://GodPoolGame/Components/PullBackComponent.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Hands/hand_low.png" type="Texture" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 18.91
+
+[node name="CelestialCueBall" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+linear_velocity_lower_limit = 15.0
+is_safe_from_void = true
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Sprite" index="0"]
+scale = Vector2( 1.6, 1.6 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="PullBackComponent" parent="." index="2" instance=ExtResource( 9 )]
+
+[node name="Pointer" type="Sprite" parent="." index="3"]
+visible = false
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
+
+[node name="PullBackTrail" type="Node2D" parent="." index="4"]
+position = Vector2( 1, 2 )
+script = ExtResource( 7 )
+
+[node name="HandSprite" type="Sprite" parent="PullBackTrail" index="0"]
+rotation = 1.5708
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 10 )
+
+[node name="FeedbackRunner" type="Node" parent="PullBackTrail" index="1"]
+script = ExtResource( 6 )
+
+[node name="TransformFeedback2D" type="Node" parent="PullBackTrail/FeedbackRunner" index="0"]
+script = ExtResource( 8 )
+TargetPath = NodePath("../../HandSprite")
+run_time = 0.1
+should_return_to_previous = false
+
+[node name="FlickTimer" type="Timer" parent="PullBackTrail" index="2"]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,4 +1,5 @@
-extends RigidBody2D
+extends CelestialBody
+class_name CelestialCueBall
 
 export (float) var linear_velocity_lower_limit = 15
 export (bool) var is_safe_from_void = false
@@ -6,6 +7,7 @@ export (bool) var is_safe_from_void = false
 onready var pull_back_component = $PullBackComponent
 onready var pointer_sprite = $Pointer
 onready var pull_back_trail_container = $PullBackTrail
+onready var flick_timer = $PullBackTrail/FlickTimer
 
 var velocity = Vector2.ZERO
 var direction = Vector2.ZERO
@@ -14,7 +16,15 @@ var should_destroy_on_contact = false
 
 func _ready():
 	EventServices.dispatch().subscribe(LevelStateChangeEvent.ID, self, "_on_level_state_changed")
+	
+	pull_back_component.connect("pulling_back", self, "_on_pulling_back")
+	pull_back_component.connect("pull_back_released", self, "_on_pull_back_released")
+	flick_timer.connect("timeout", self, "_on_flick_timer_timeout")
+	
 	self.connect("body_entered", self, "_on_body_entered")
+#	self.connect("mouse_entered", self, "_on_mouse_entered")
+#	self.connect("mouse_exited", self, "_on_mouse_exited")
+#
 	pointer_sprite.visible = false
 	pull_back_trail_container.visible = false
 	
@@ -33,22 +43,22 @@ func _on_body_entered(body: Node):
 		_on_destroy()
 
 
-func _on_PullBackComponent_pull_back_released(force):
+func _on_pull_back_released(force):
 	stored_force = force
 	pointer_sprite.visible = false
 	pointer_sprite.rotation = 0
 
 
-func _on_PullBackComponent_pulling_back(direction, power_ratio):
+func _on_pulling_back(direction, power_ratio):
 	set_pull_back_trail(direction,power_ratio)
 	set_pointer(direction, power_ratio)
 
 
-func _on_TestBall_mouse_entered():
+func _on_mouse_entered():
 	pull_back_component.is_draggable = true
 
 
-func _on_TestBall_mouse_exited():
+func _on_mouse_exited():
 	pull_back_component.is_draggable = false
 
 
@@ -63,6 +73,7 @@ func set_pull_back_trail(direction, power_ratio):
 	pull_back_trail_container.position = - direction * .2
 	pull_back_trail_container.visible = true
 
+
 func set_pointer(direction, power_ratio):
 	if power_ratio == 0:
 		pointer_sprite.visible = false
@@ -73,7 +84,8 @@ func set_pointer(direction, power_ratio):
 	pointer_sprite.position = direction * .5
 	pointer_sprite.visible = true
 
-func _on_FlickTimmer_timeout():
+
+func _on_flick_timer_timeout():
 	apply_impulse(Vector2.ZERO, stored_force)
 	stored_force = Vector2.ZERO
 	pull_back_trail_container.visible = false
