@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://GodPoolGame/TestSubjects/BlackHole.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GodPoolGame/Game/Entities/CelestialCueBall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GodPoolGame/Game/Entities/Planet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GodPoolGame/Game/Levels/BaseLevel.gd" type="Script" id=5]
+
+[node name="Level 1" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Red Planet" parent="Entities" instance=ExtResource( 4 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 435, 656 )
+
+[node name="Green Planet" parent="Entities" instance=ExtResource( 4 )]
+modulate = Color( 0.054902, 1, 0.466667, 1 )
+position = Vector2( 1094, 561 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Blue Planet" parent="Entities" instance=ExtResource( 4 )]
+modulate = Color( 0.113725, 0.541176, 1, 1 )
+position = Vector2( 690, 254 )
+
+[node name="CelestialCueBall" parent="Entities" instance=ExtResource( 3 )]
+position = Vector2( 354, 443 )
+
+[node name="BlackHole" parent="Entities" instance=ExtResource( 2 )]
+position = Vector2( 1044, 693 )

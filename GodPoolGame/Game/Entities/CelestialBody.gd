@@ -52,3 +52,8 @@ func _should_destroy_from_void() -> bool:
 	var in_contact_with_void = get_colliding_bodies().size() > 0
 
 	return void_swallowable and in_contact_with_void and should_destroy_on_contact
+
+
+func _on_swallowed_by_blackhole():
+	print("BLACKHOLED")
+	queue_free()

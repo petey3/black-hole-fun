@@ -14,10 +14,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://JamKit/Feedback/BaseFeedback.gd"
 }, {
+"base": "Node2D",
+"class": "BaseLevel",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Levels/BaseLevel.gd"
+}, {
 "base": "TweenFeedback2D",
 "class": "BaseTweenTransformFeedback2D",
 "language": "GDScript",
 "path": "res://JamKit/Feedback/Transform/BaseTweenTransformFeedback2D.gd"
+}, {
+"base": "RigidBody2D",
+"class": "BlackHole",
+"language": "GDScript",
+"path": "res://GodPoolGame/TestSubjects/BlackHole.gd"
 }, {
 "base": "Node",
 "class": "BoolSequencer",
@@ -321,7 +331,9 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BaseFeedback": "",
+"BaseLevel": "",
 "BaseTweenTransformFeedback2D": "",
+"BlackHole": "",
 "BoolSequencer": "",
 "Celestial": "",
 "CelestialArea": "",
