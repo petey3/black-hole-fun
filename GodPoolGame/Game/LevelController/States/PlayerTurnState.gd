@@ -18,6 +18,10 @@ func physics_update(delta):
 		return
 	
 	var balls = get_tree().get_nodes_in_group('Balls')
+	
+	if balls.size() == 1:
+		state_machine.transition_to("LossConditionMetState")
+	
 	for ball in balls:
 		var rigid_ball := ball as RigidBody2D
 		if not rigid_ball:

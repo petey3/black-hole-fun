@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GodPoolGame/States/StateMachine.gd" type="Script" id=1]
 [ext_resource path="res://GodPoolGame/Game/LevelController/States/PlayerTurnState.gd" type="Script" id=2]
 [ext_resource path="res://GodPoolGame/Game/LevelController/States/SetupLevel.gd" type="Script" id=3]
 [ext_resource path="res://GodPoolGame/Game/LevelController/States/ChaosTurnState.gd" type="Script" id=4]
 [ext_resource path="res://GodPoolGame/Game/LevelController/LevelController.gd" type="Script" id=5]
+[ext_resource path="res://GodPoolGame/Game/LevelController/WinConditionMetState.gd" type="Script" id=6]
+[ext_resource path="res://GodPoolGame/Game/LevelController/LossConditionMetState.gd" type="Script" id=7]
 
 [node name="LevelController" type="Node"]
 script = ExtResource( 5 )
@@ -22,3 +24,9 @@ script = ExtResource( 2 )
 
 [node name="ChaosTurnState" type="Node" parent="StateMachine"]
 script = ExtResource( 4 )
+
+[node name="WinConditionMetState" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+
+[node name="LossConditionMetState" type="Node" parent="StateMachine"]
+script = ExtResource( 7 )

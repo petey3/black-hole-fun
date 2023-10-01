@@ -114,6 +114,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://GodPoolGame/Game/LevelController/Events/LevelStateChangeEvent.gd"
 }, {
+"base": "State",
+"class": "LossConditionMetState",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/LevelController/LossConditionMetState.gd"
+}, {
 "base": "Node",
 "class": "MovementComponent2D",
 "language": "GDScript",
@@ -268,6 +273,11 @@ _global_script_classes=[ {
 "class": "WaveSequencer",
 "language": "GDScript",
 "path": "res://JamKit/Sequencers/Float/WaveSequencer.gd"
+}, {
+"base": "State",
+"class": "WinConditionMetState",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/LevelController/WinConditionMetState.gd"
 } ]
 _global_script_class_icons={
 "BaseFeedback": "",
@@ -291,6 +301,7 @@ _global_script_class_icons={
 "IntSequencer": "",
 "LevelController": "",
 "LevelStateChangeEvent": "",
+"LossConditionMetState": "",
 "MovementComponent2D": "",
 "Normalizer": "",
 "PlayerShot": "",
@@ -321,7 +332,8 @@ _global_script_class_icons={
 "UniverseBoundaries": "",
 "ValuePoolComponent": "",
 "WASDDirectionCalculator2D": "",
-"WaveSequencer": ""
+"WaveSequencer": "",
+"WinConditionMetState": ""
 }
 
 [application]

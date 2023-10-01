@@ -30,7 +30,7 @@ func _physics_process(delta):
 			
 func _on_body_entered(body: Node):
 	if should_destroy_on_contact and not is_safe_from_void:
-		queue_free()
+		_on_destroy()
 
 
 func _on_PullBackComponent_pull_back_released(force):
@@ -85,4 +85,12 @@ func _on_level_state_changed(event: Event):
 		return
 		
 	should_destroy_on_contact = not level_change_event.is_player_in_control
+	
+	# TODO: Check that this isn't another ball!
+	if get_colliding_bodies().size() > 0:
+		_on_destroy()
+		
+		
+func _on_destroy():
+	queue_free()
 

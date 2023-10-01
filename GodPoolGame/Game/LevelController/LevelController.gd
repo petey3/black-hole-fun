@@ -13,5 +13,3 @@ class_name LevelController
 # Exit Level 
 
 onready var state_machine = $StateMachine
-
-var shots_taken
