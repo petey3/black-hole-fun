@@ -407,6 +407,7 @@ config/icon="res://icon.png"
 EventServices="*res://JamKit/Events/EventServices.tscn"
 PresentationServices="*res://JamKit/Presentation/PresentationServices.tscn"
 GodPoolGameConstants="*res://GodPoolGame/Game/GodPoolGameConstants.tscn"
+MusicMan="*res://GodPoolGame/Game/MusicMan.tscn"
 
 [display]
 
