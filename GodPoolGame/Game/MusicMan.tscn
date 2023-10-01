@@ -19,6 +19,7 @@ stream = ExtResource( 1 )
 [node name="TwinkleSynth" parent="." instance=ExtResource( 6 )]
 stream = ExtResource( 2 )
 bus = "Delay"
+playback_volume = -10.0
 
 [node name="TenseBass" parent="." instance=ExtResource( 6 )]
 stream = ExtResource( 3 )

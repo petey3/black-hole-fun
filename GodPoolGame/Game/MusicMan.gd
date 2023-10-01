@@ -14,7 +14,11 @@ func update_music_state():
 		1:
 			$Chordz.fade_in()
 		2:
-			$TwinkleSynth.fade_in()
+			$TwinkleSynth.fade_in(10)
+		4:
+			$DroneBass.fade_out()
+			$TwinkleSynth.fade_out(5)
+			$TenseBass.fade_in(0.5)
 
 func _on_universe_change_event(event: Event):
 	times_shrunk = times_shrunk + 1
