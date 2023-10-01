@@ -26,7 +26,7 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body: Node):
-	if should_destroy_on_contact and is_in_group(GodPoolGameConstants.GROUP_ID_VOID_SWALLOWABLE):
+	if _should_destroy_from_void():
 		_on_void_destroy()
 		
 
@@ -41,10 +41,14 @@ func _on_level_state_changed(event: Event):
 		return
 		
 	should_destroy_on_contact = not level_change_event.is_player_in_control
-	
-	# TODO: Check that this isn't another ball!
-	# TODO: Check that this isn't another ball!
-	if get_colliding_bodies().size() > 0:
+	if _should_destroy_from_void():
 		_on_void_destroy()
 	
 
+func _should_destroy_from_void() -> bool:
+	var void_swallowable = is_in_group(GodPoolGameConstants.GROUP_ID_VOID_SWALLOWABLE)
+	# TODO: Check that this isn't another ball!
+	# TODO: Check that this isn't another ball!
+	var in_contact_with_void = get_colliding_bodies().size() > 0
+
+	return void_swallowable and in_contact_with_void and should_destroy_on_contact

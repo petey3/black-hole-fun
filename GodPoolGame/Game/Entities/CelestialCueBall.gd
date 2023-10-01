@@ -18,9 +18,7 @@ func _ready():
 	pull_back_trail_container.visible = false
 	
 	
-func _setup_signals():
-	EventServices.dispatch().subscribe(LevelStateChangeEvent.ID, self, "_on_level_state_changed")
-	
+func _setup_signals():	
 	pull_back_component.connect("pulling_back", self, "_on_pulling_back")
 	pull_back_component.connect("pull_back_released", self, "_on_pull_back_released")
 	flick_timer.connect("timeout", self, "_on_flick_timer_timeout")
@@ -85,18 +83,6 @@ func _on_flick_timer_timeout():
 	stored_force = Vector2.ZERO
 	pull_back_trail_container.visible = false
 	pull_back_trail_container.rotation = 0
-	
-	
-func _on_level_state_changed(event: Event):
-	var level_change_event := event as LevelStateChangeEvent
-	if not level_change_event:
-		return
-		
-	should_destroy_on_contact = not level_change_event.is_player_in_control
-	
-	# TODO: Check that this isn't another ball!
-	if get_colliding_bodies().size() > 0:
-		_on_destroy()
 		
 		
 func _on_destroy():
