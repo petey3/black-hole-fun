@@ -14,9 +14,9 @@ func enter(properties := {}) -> void:
 	var inline_timer = InlineTimer.wait(self, 3)
 	yield(inline_timer.timer, inline_timer.timeout)
 	
-	var balls = get_tree().get_nodes_in_group('Balls')
+	var celestial_bodies = get_tree().get_nodes_in_group(GodPoolGameConstants.GROUP_ID_CELESTIAL_BODY)
 	
-	if balls.size() == 1:
+	if celestial_bodies.size() == 1:
 		state_machine.transition_to("LossConditionMetState")
 	else:
 		state_machine.transition_to("PlayerTurnState")

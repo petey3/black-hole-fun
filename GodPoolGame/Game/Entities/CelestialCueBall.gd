@@ -15,6 +15,14 @@ var stored_force = Vector2.ZERO
 var should_destroy_on_contact = false
 
 func _ready():
+	._ready()
+	_setup_signals()
+
+	pointer_sprite.visible = false
+	pull_back_trail_container.visible = false
+	
+	
+func _setup_signals():
 	EventServices.dispatch().subscribe(LevelStateChangeEvent.ID, self, "_on_level_state_changed")
 	
 	pull_back_component.connect("pulling_back", self, "_on_pulling_back")
@@ -22,11 +30,8 @@ func _ready():
 	flick_timer.connect("timeout", self, "_on_flick_timer_timeout")
 	
 	self.connect("body_entered", self, "_on_body_entered")
-#	self.connect("mouse_entered", self, "_on_mouse_entered")
-#	self.connect("mouse_exited", self, "_on_mouse_exited")
-#
-	pointer_sprite.visible = false
-	pull_back_trail_container.visible = false
+	self.connect("mouse_entered", self, "_on_mouse_entered")
+	self.connect("mouse_exited", self, "_on_mouse_exited")
 	
 	
 func _process(delta):

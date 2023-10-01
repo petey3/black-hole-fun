@@ -19,17 +19,17 @@ func physics_update(delta):
 	if not has_player_shot:
 		return
 	
-	var balls = get_tree().get_nodes_in_group('Balls')
+	var celestial_bodies = get_tree().get_nodes_in_group(GodPoolGameConstants.GROUP_ID_CELESTIAL_BODY)
 	
-	if balls.size() == 1:
+	if celestial_bodies.size() == 1:
 		state_machine.transition_to("LossConditionMetState")
 	
-	for ball in balls:
-		var rigid_ball := ball as RigidBody2D
-		if not rigid_ball:
+	for body in celestial_bodies:
+		var rigid_body := body as RigidBody2D
+		if not rigid_body:
 			continue
 			
-		if rigid_ball.linear_velocity.length() > 0:
+		if rigid_body.linear_velocity.length() > 0:
 			return
 		
 	has_player_shot = false

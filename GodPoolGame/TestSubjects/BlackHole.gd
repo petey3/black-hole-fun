@@ -13,17 +13,19 @@ func _ready():
 
 
 func _physics_process(delta):
-	var balls = get_tree().get_nodes_in_group('Balls')
-	for ball in balls:
-		var direction = position.direction_to(ball.position)
-		var sq_magnitude = position.distance_squared_to(ball.position)
+	var celestial_bodies = get_tree().get_nodes_in_group(GodPoolGameConstants.GROUP_ID_BLACKHOLE_MOVEABLE)
+	for body in celestial_bodies:
+		var direction = position.direction_to(body.position)
+		var sq_magnitude = position.distance_squared_to(body.position)
 		
-		if sq_magnitude < kill_zone_radius * kill_zone_radius:
-			emit_signal("swallow_ball", ball)
+		var is_in_kill_zone = sq_magnitude < kill_zone_radius * kill_zone_radius
+		var is_swallowable = body.is_in_group(GodPoolGameConstants.GROUP_ID_BLACKHOLE_SWALLOWABLE)
+		if is_in_kill_zone and is_swallowable:
+			emit_signal("swallow_ball", body)
 		
 		var output_magnitude = (1 / (sq_magnitude + influence)) * (influence * strength)
 		if output_magnitude < dead_zone:
 			output_magnitude = 0
 		
 		var motion_vector = -output_magnitude * direction
-		ball.apply_central_impulse(motion_vector)
+		body.apply_central_impulse(motion_vector)

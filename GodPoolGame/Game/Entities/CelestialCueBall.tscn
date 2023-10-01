@@ -15,6 +15,7 @@
 radius = 18.91
 
 [node name="CelestialCueBall" instance=ExtResource( 2 )]
+input_pickable = true
 script = ExtResource( 1 )
 linear_velocity_lower_limit = 15.0
 is_safe_from_void = true
@@ -31,6 +32,7 @@ texture = ExtResource( 4 )
 shape = SubResource( 1 )
 
 [node name="PullBackComponent" parent="." index="2" instance=ExtResource( 9 )]
+max_power_distance = 400.0
 
 [node name="Pointer" type="Sprite" parent="." index="3"]
 visible = false
@@ -59,5 +61,5 @@ should_return_to_previous = false
 wait_time = 0.2
 one_shot = true
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pull_back_released" from="PullBackComponent" to="PullBackTrail" method="_on_PullBackComponent_pull_back_released"]
+[connection signal="pulling_back" from="PullBackComponent" to="PullBackTrail" method="_on_PullBackComponent_pulling_back"]

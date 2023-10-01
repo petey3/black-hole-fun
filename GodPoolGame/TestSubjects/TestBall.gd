@@ -18,6 +18,9 @@ func _ready():
 	pointer_sprite.visible = false
 	pull_back_trail_container.visible = false
 	
+	add_to_group(GodPoolGameConstants.GROUP_ID_BLACKHOLE_MOVEABLE)
+	add_to_group(GodPoolGameConstants.GROUP_ID_BLACKHOLE_SWALLOWABLE)
+	
 	
 func _process(delta):
 	rotation = 0

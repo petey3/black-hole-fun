@@ -1,4 +1,5 @@
 extends Node2D
+class_name PullBackTrail
 
 var low_sprite = "res://Assets/Hands/hand_low.png"
 var medium_sprite = "res://Assets/Hands/hand_mid.png"
@@ -10,8 +11,8 @@ onready var feedback_runner = $FeedbackRunner
 onready var transform_feedback = $FeedbackRunner/TransformFeedback2D
 onready var flick_timer = $FlickTimer
 
+
 func _on_PullBackComponent_pulling_back(direction, power_ratio):
-	
 	if power_ratio < .3:
 		hand_sprite.texture = load(low_sprite)
 	elif power_ratio < .6:
