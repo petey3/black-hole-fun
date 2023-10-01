@@ -25,7 +25,7 @@ func _process(delta):
 		return
 	
 	if is_pulling_back and Input.is_mouse_button_pressed(1):
-		var direction: Vector2 = get_parent().position - get_viewport().get_mouse_position()
+		var direction: Vector2 = get_parent().position - get_parent().get_global_mouse_position()
 		direction = direction.limit_length(max_power_distance)
 		var ratio = direction.length() / max_power_distance
 		emit_signal("pulling_back", direction, ratio)
