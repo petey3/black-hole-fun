@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GodPoolGame/Game/LevelController/LevelController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GodPoolGame/TestScenes/UniverseBoundaries.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GodPoolGame/TestSubjects/BlackHole.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GodPoolGame/Game/Entities/CelestialCueBall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GodPoolGame/Game/Entities/Planet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GodPoolGame/Game/Contexts/Gameplay-Context/Gameplay-Context-World.gd" type="Script" id=6]
 
 [node name="Gameplay-Context-World" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="LevelController" parent="." instance=ExtResource( 1 )]
 
@@ -22,7 +24,10 @@ position = Vector2( 435, 656 )
 
 [node name="Green Planet" parent="Level-Root/Entities" instance=ExtResource( 5 )]
 modulate = Color( 0.054902, 1, 0.466667, 1 )
-position = Vector2( 1171, 365 )
+position = Vector2( 1094, 561 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Blue Planet" parent="Level-Root/Entities" instance=ExtResource( 5 )]
 modulate = Color( 0.113725, 0.541176, 1, 1 )
@@ -33,3 +38,5 @@ position = Vector2( 354, 443 )
 
 [node name="BlackHole" parent="Level-Root/Entities" instance=ExtResource( 3 )]
 position = Vector2( 1044, 693 )
+
+[connection signal="swallow_body" from="Level-Root/Entities/BlackHole" to="." method="_on_BlackHole_swallow_body"]

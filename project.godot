@@ -114,6 +114,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://GodPoolGame/Game/Contexts/Gameplay-Context/UserInterface/GamplayHUD.gd"
 }, {
+"base": "Node2D",
+"class": "Gameplay_Context_World",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Contexts/Gameplay-Context/Gameplay-Context-World.gd"
+}, {
 "base": "Event",
 "class": "GreenEvent",
 "language": "GDScript",
@@ -336,6 +341,7 @@ _global_script_class_icons={
 "FeedbackRunner": "",
 "FloatSequencer": "",
 "GameplayHUD": "",
+"Gameplay_Context_World": "",
 "GreenEvent": "",
 "InlineTimer": "",
 "IntSequencer": "",

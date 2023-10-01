@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-signal swallow_ball(Ball)
+signal swallow_body(body)
 
 export (float) var strength = 200
 export (float) var influence = 1500
@@ -20,8 +20,9 @@ func _physics_process(delta):
 		
 		var is_in_kill_zone = sq_magnitude < kill_zone_radius * kill_zone_radius
 		var is_swallowable = body.is_in_group(GodPoolGameConstants.GROUP_ID_BLACKHOLE_SWALLOWABLE)
+		
 		if is_in_kill_zone and is_swallowable:
-			emit_signal("swallow_ball", body)
+			emit_signal("swallow_body", body)
 		
 		var output_magnitude = (1 / (sq_magnitude + influence)) * (influence * strength)
 		if output_magnitude < dead_zone:
