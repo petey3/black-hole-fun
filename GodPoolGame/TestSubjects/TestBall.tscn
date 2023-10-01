@@ -24,6 +24,7 @@ gravity_scale = 0.0
 continuous_cd = 2
 contacts_reported = 10
 contact_monitor = true
+linear_damp = 0.4
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

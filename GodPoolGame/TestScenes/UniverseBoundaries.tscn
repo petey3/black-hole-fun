@@ -21,20 +21,24 @@ centered = false
 [node name="TopHalf" type="StaticBody2D" parent="UniverseRoot"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UniverseRoot/TopHalf"]
+scale = Vector2( 1.875, 1.875 )
 build_mode = 1
-polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 310, 906, 310, 889, 158, 709, 67, 300, 78, 91, 213, 107, 313, 0, 313 )
+polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 310, 906, 310, 889, 158, 709, 67, 300, 78, 91, 213, 106.133, 287.467, 0, 313 )
 
 [node name="BottomHalf" type="StaticBody2D" parent="UniverseRoot"]
-position = Vector2( 0, 600 )
+position = Vector2( 0, 1080 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UniverseRoot/BottomHalf"]
+scale = Vector2( 1.875, 1.875 )
 build_mode = 1
 polygon = PoolVector2Array( 0, 0, 0, -300, 108, -289, 132, -153, 565, -56, 787, -165, 907, -292, 1025, -290, 1027, 0 )
 
 [node name="InnerSpaceMask" type="Polygon2D" parent="UniverseRoot"]
+position = Vector2( 27, 164 )
+scale = Vector2( 1.85819, 1.24059 )
 color = Color( 0.466667, 0.294118, 0.545098, 1 )
 texture = ExtResource( 5 )
-polygon = PoolVector2Array( 907, 306, 791, 436, 562, 545, 133, 449, 89, 217, 297, 79, 708, 67, 889, 157, 905, 305 )
+polygon = PoolVector2Array( 554.841, 653.723, 117.857, 508.631, 79.1092, 191.845, 289.529, -14.5093, 699.067, -31.4368, 882.579, 106.401, 896.033, 303.889, 779.253, 488.479 )
 
 [node name="FeedbackRunner" type="Node" parent="."]
 script = ExtResource( 3 )

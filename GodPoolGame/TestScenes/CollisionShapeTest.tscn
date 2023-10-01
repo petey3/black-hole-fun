@@ -9,11 +9,26 @@
 
 [node name="BallTest" parent="." instance=ExtResource( 1 )]
 
+[node name="PlayerBall" parent="BallTest" index="0"]
+position = Vector2( 604, 416 )
+__meta__ = {
+"_edit_group_": true
+}
+
 [node name="TestBall2" parent="BallTest" index="1"]
-position = Vector2( 840, 350 )
+position = Vector2( 722, 166 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="TestBall3" parent="BallTest" index="2"]
-position = Vector2( 351, 483 )
+position = Vector2( 235, 550 )
+
+[node name="BlackHole" parent="BallTest" index="3"]
+position = Vector2( 1208, 691 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [editable path="BallTest"]
 [editable path="BallTest/PlayerBall"]
