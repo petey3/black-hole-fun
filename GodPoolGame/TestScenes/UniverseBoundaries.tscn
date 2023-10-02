@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://GodPoolGame/TestScenes/UniverseBoundaries.gd" type="Script" id=1]
 [ext_resource path="res://JamKit/Feedback/Transform/TransformFeedback2D.gd" type="Script" id=2]
@@ -9,13 +9,13 @@
 [ext_resource path="res://Assets/Border/layer2.png" type="Texture" id=7]
 [ext_resource path="res://Assets/background.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Border/layer1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Border/solid-border-purple.png" type="Texture" id=10]
 
 [node name="UniverseBoundaries" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Background" type="Sprite" parent="."]
-modulate = Color( 0.121569, 0, 0.192157, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
