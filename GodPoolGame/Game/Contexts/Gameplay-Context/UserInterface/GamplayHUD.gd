@@ -31,20 +31,19 @@ func _on_level_state_change(event: Event):
 		menu.visible = true
 		friends.visible = false
 		next_button.disabled = not level_event.can_go_to_next_level
-
+	else:
+		friends.visible = true
 
 func _on_reloaded_current_scene(event: Event):
 	pass
 
-
-
 func _on_restart_pressed():
 	GameplayServices.levels().reload_current_scene()
 	next_button.disabled = true
-	visible = false
-	
+	menu.visible = false
+	friends.visible = true
 
 func _on_next_pressed():
-	visible = false
+	menu.visible = false
 	friends.visible = true
 	GameplayServices.levels().next_level()
