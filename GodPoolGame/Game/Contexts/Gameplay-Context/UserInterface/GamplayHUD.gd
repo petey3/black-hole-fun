@@ -7,6 +7,7 @@ onready var next_button = $NextButton
 
 func _ready():
 	EventServices.dispatch().subscribe(LevelStateChangeEvent.ID, self, "_on_level_state_change")
+	EventServices.dispatch().subscribe(ReloadedCurrentSceneEvent.ID, self, "_on_reloaded_current_scene")
 	restart_button.connect("pressed", self, "_on_restart_pressed")
 	next_button.connect("pressed", self, "_on_next_pressed")
 	visible = false
@@ -27,9 +28,15 @@ func _on_level_state_change(event: Event):
 		next_button.disabled = not level_event.can_go_to_next_level
 
 
+func _on_reloaded_current_scene(event: Event):
+	pass
+
+
+
 func _on_restart_pressed():
 	GameplayServices.levels().reload_current_scene()
 	next_button.disabled = true
+	visible = false
 	
 
 func _on_next_pressed():

@@ -16,7 +16,6 @@ func create_level_info() -> LevelEntityInfo:
 	EventServices.dispatch().subscribe(PlanetChangeEvent.ID, self, "_on_planet_change_event")
 	EventServices.dispatch().subscribe(ReloadedCurrentSceneEvent.ID, self, "_on_reloaded_scene_event")
 
-	
 	return level_entity_info
 	
 	
