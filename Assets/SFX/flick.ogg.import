@@ -11,5 +11,5 @@ dest_files=[ "res://.import/flick.ogg-c6b6f4ef37f9ea9dcf82bda25bfa76b9.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

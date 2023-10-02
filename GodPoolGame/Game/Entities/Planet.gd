@@ -48,7 +48,7 @@ func _ready():
 	idle_rotation_value = Random.randf_range(10.0, 20.0)
 	random_rotation_offset = Random.randf_range(idle_rotation_value * -1, idle_rotation_value)
 	wave_sequencer.period = Random.randf_range(0.3, 2)
-	wave_sequencer.connect("new_value", self, "_on_new_wave_value")	
+	wave_sequencer.connect("new_value", self, "_on_new_wave_value")
 	
 		
 
@@ -77,26 +77,34 @@ func _add_to_groups():
 
 func _on_body_entered(node: Node):
 	hit_feedback_runner.execute_feedbacks()
+	$BounceSound.play()
 	._on_body_entered(node)
 
 
 func _on_void_destroy():
 	var void_event = PlanetChangeEvent.new(PlanetChangeEvent.ChangeType.VOID, population)
 	EventServices.dispatch().broadcast(void_event)
+	$BlackHoleSuckSound.play()
 	._on_void_destroy()
 
 
 func _on_swallowed_by_blackhole(blackhole_center: Vector2):
+	if has_been_swallowed_or_captured:
+		return
+	
 	var blackhole_event = PlanetChangeEvent.new(PlanetChangeEvent.ChangeType.BLACKHOLE, population)
 	EventServices.dispatch().broadcast(blackhole_event)
-	
+	$BlackHoleSuckSound.play()
 	_run_capture_sequence(blackhole_center)
 
 
 func _on_collide_with_whitehole(whitehole_center: Vector2):
+	if has_been_swallowed_or_captured:
+		return
+	
 	var whitehole_event = PlanetChangeEvent.new(PlanetChangeEvent.ChangeType.WHITEHOLE, population)
 	EventServices.dispatch().broadcast(whitehole_event)
-		
+	$WhiteHoleSuckSound.play()
 	_run_capture_sequence(whitehole_center)
 
 

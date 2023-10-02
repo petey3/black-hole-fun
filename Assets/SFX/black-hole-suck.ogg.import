@@ -11,5 +11,5 @@ dest_files=[ "res://.import/black-hole-suck.ogg-bed3385bd04af74bf522b4cccc537f67
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

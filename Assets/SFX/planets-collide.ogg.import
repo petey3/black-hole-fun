@@ -11,5 +11,5 @@ dest_files=[ "res://.import/planets-collide.ogg-aef3244cc342848a288abb483ce23ce7
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

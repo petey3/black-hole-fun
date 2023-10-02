@@ -49,6 +49,7 @@ func _on_pull_back_released(force):
 	stored_force = force
 	pointer_sprite.visible = false
 	pointer_sprite.rotation = 0
+	$FlickSound.play()
 
 
 func _on_pulling_back(direction, power_ratio):
@@ -104,7 +105,7 @@ func _add_to_groups():
 	add_to_group(GodPoolGameConstants.GROUP_ID_BLACKHOLE_MOVEABLE)
 	add_to_group(GodPoolGameConstants.GROUP_ID_BLACKHOLE_SWALLOWABLE)
 
-		
+
 func _on_destroy():
 	queue_free()
 
@@ -117,3 +118,6 @@ func _on_swallowed_by_blackhole(center: Vector2):
 	scene_to_spawn.position = shot_start_pos
 	self.get_parent().add_child(scene_to_spawn)
 	queue_free()
+
+func _on_body_entered(node: Node):
+	$BounceSound.play()

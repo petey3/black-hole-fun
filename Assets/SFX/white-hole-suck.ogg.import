@@ -11,5 +11,5 @@ dest_files=[ "res://.import/white-hole-suck.ogg-8514af2990364a4343eab8eab740da18
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

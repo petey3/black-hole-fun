@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://GodPoolGame/Game/Entities/CelestialCueBall.gd" type="Script" id=1]
 [ext_resource path="res://GodPoolGame/Game/Entities/CelestialBody.tscn" type="PackedScene" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://JamKit/Feedback/Transform/TransformFeedback2D.gd" type="Script" id=8]
 [ext_resource path="res://GodPoolGame/Components/PullBackComponent.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Hands/hand_low.png" type="Texture" id=10]
+[ext_resource path="res://Assets/SFX/flick.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Assets/SFX/black-hole-suck.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Assets/SFX/planets-collide.ogg" type="AudioStream" id=13]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 18.91
@@ -58,5 +61,21 @@ one_shot = true
 [node name="WaveSequencer" type="Node" parent="." index="5"]
 script = ExtResource( 3 )
 
+[node name="FlickSound" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource( 11 )
+volume_db = 19.787
+bus = "SFX"
+
+[node name="BlackHoleSuckSound" type="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource( 12 )
+volume_db = 24.0
+bus = "SFX"
+
+[node name="BounceSound" type="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource( 13 )
+volume_db = 24.0
+pitch_scale = 1.3
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="pull_back_released" from="PullBackComponent" to="PullBackTrail" method="_on_PullBackComponent_pull_back_released"]
 [connection signal="pulling_back" from="PullBackComponent" to="PullBackTrail" method="_on_PullBackComponent_pulling_back"]
