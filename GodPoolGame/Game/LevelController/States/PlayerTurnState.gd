@@ -1,4 +1,4 @@
-extends State
+extends LevelControllerState
 class_name PlayerTurnState
 
 const ID = "state.player_turn"
@@ -41,23 +41,5 @@ func _on_player_shot(event: Event):
 	var inline_timer = InlineTimer.wait(self, 1)
 	yield(inline_timer.timer, inline_timer.timeout)
 	has_player_shot = true
-	
-	
-func _did_player_win() -> bool:
-	if GameplayServices.entities().are_all_live_planets_saved():
-		return true
-		
-	# Otherwise, if there are no planets left but we saved some
-	# thats also a win
-	var are_no_planets_left = GameplayServices.entities().total_remaining_planet_count() == 0
-	var were_some_saved = GameplayServices.entities().saved_live_planets() > 0
-	if are_no_planets_left and were_some_saved:
-		return true
-	
-	return false
-	
 
-func _did_player_lose() -> bool:
-	return GameplayServices.entities().are_all_live_planets_lost()
-	
 

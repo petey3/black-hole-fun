@@ -1,4 +1,4 @@
-extends State
+extends LevelControllerState
 class_name SetupLevelState
 
 const ID = "state.setup_level"

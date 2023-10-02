@@ -54,7 +54,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://GodPoolGame/Game/Entities/CelestialCueBall.gd"
 }, {
-"base": "State",
+"base": "LevelControllerState",
 "class": "ChaosTurnState",
 "language": "GDScript",
 "path": "res://GodPoolGame/Game/LevelController/States/ChaosTurnState.gd"
@@ -169,6 +169,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://GodPoolGame/Game/LevelController/LevelController.gd"
 }, {
+"base": "State",
+"class": "LevelControllerState",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/LevelController/States/LevelControllerState.gd"
+}, {
 "base": "Object",
 "class": "LevelEntityInfo",
 "language": "GDScript",
@@ -224,7 +229,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://GodPoolGame/Game/Player/Events/PlayerShot.gd"
 }, {
-"base": "State",
+"base": "LevelControllerState",
 "class": "PlayerTurnState",
 "language": "GDScript",
 "path": "res://GodPoolGame/Game/LevelController/States/PlayerTurnState.gd"
@@ -279,7 +284,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://JamKit/Feedback/Transform/ScaleFeedback2D.gd"
 }, {
-"base": "State",
+"base": "LevelControllerState",
 "class": "SetupLevelState",
 "language": "GDScript",
 "path": "res://GodPoolGame/Game/LevelController/States/SetupLevel.gd"
@@ -422,6 +427,7 @@ _global_script_class_icons={
 "IntSequencer": "",
 "Level": "",
 "LevelController": "",
+"LevelControllerState": "",
 "LevelEntityInfo": "",
 "LevelServices": "",
 "LevelStateChangeEvent": "",
