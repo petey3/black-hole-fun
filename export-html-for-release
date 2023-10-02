@@ -1,0 +1,26 @@
+#!/bin/bash
+
+GODOT_PATH=$1
+GODOT_EXEC=${GODOT_PATH:=/Applications/Godot.app}/Contents/MacOS/Godot 
+
+echo 'Godot version:'
+$GODOT_EXEC --version
+
+if ! $GODOT_EXEC --version | grep 3.5 > /dev/null; then
+  echo You need to use Godot 3.5 to export. You can specify the path to Godot as the first
+  echo command line argument to this script if needed. Just type ./export-html-for-release 
+  echo followed by a space and then drag the Godot executable onto your terminal window.
+fi
+
+# Clean previous build artifacts
+rm -rf ./build build.zip
+mkdir -p ./build
+
+# Export the project using Godot
+$GODOT_EXEC --path . --export HTML5 --no-window
+
+# Create the zip file
+pushd build
+zip ../build.zip *
+popd
+
