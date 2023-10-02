@@ -50,7 +50,6 @@ texture_scale = Vector2( 1.3, 1.3 )
 polygon = PoolVector2Array( 554.841, 653.723, 117.857, 508.631, 79.1092, 191.845, 289.529, -14.5093, 699.067, -31.4368, 882.579, 106.401, 896.033, 303.889, 779.253, 488.479 )
 
 [node name="Border" type="Node2D" parent="UniverseRoot"]
-visible = false
 position = Vector2( 1003, 515 )
 scale = Vector2( 1.35, 1.35 )
 
