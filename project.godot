@@ -124,6 +124,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://JamKit/Sequencers/Float/FloatSequencer.gd"
 }, {
+"base": "Context",
+"class": "GameplayContext",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Contexts/Gameplay-Context/GameplayContext.gd"
+}, {
 "base": "Control",
 "class": "GameplayHUD",
 "language": "GDScript",
@@ -133,6 +138,11 @@ _global_script_classes=[ {
 "class": "Gameplay_Context_World",
 "language": "GDScript",
 "path": "res://GodPoolGame/Game/Contexts/Gameplay-Context/Gameplay-Context-World.gd"
+}, {
+"base": "Node",
+"class": "GodPoolGameApplication",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/GodPoolGameApplication.gd"
 }, {
 "base": "Event",
 "class": "GreenEvent",
@@ -314,6 +324,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://GodPoolGame/States/StateMachine.gd"
 }, {
+"base": "Context",
+"class": "TitleContext",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Contexts/Title-Context/TitleContext.gd"
+}, {
 "base": "BoolSequencer",
 "class": "ToggleSequencer",
 "language": "GDScript",
@@ -398,8 +413,10 @@ _global_script_class_icons={
 "EventSubscription": "",
 "FeedbackRunner": "",
 "FloatSequencer": "",
+"GameplayContext": "",
 "GameplayHUD": "",
 "Gameplay_Context_World": "",
+"GodPoolGameApplication": "",
 "GreenEvent": "",
 "InlineTimer": "",
 "IntSequencer": "",
@@ -436,6 +453,7 @@ _global_script_class_icons={
 "Spinner": "",
 "State": "",
 "StateMachine": "",
+"TitleContext": "",
 "ToggleSequencer": "",
 "TransformFeedback2D": "",
 "TweenFeedback": "",
@@ -453,7 +471,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Ludem Dare 54"
-run/main_scene="res://GodPoolGame/Game/Contexts/GameplayContext.tscn"
+run/main_scene="res://GodPoolGame/Game/Contexts/Gameplay-Context/GameplayContext.tscn"
 config/icon="res://icon.png"
 
 [autoload]

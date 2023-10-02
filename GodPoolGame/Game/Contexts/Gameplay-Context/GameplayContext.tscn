@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://GodPoolGame/Game/Contexts/Gameplay-Context/Gameplay-Context-World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GodPoolGame/Game/Contexts/Gameplay-Context/Gameplay-Context-UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GodPoolGame/Game/Contexts/Gameplay-Context/GameplayContext.gd" type="Script" id=3]
 
 [node name="GameplayContext" type="Node"]
+script = ExtResource( 3 )
 
 [node name="Gameplay-Context-World-Root" type="Node2D" parent="."]
 
