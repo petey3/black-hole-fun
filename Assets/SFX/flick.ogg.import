@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/flick.ogg-c6b6f4ef37f9ea9dcf82bda25bfa76b9.oggstr"
+
+[deps]
+
+source_file="res://Assets/SFX/flick.ogg"
+dest_files=[ "res://.import/flick.ogg-c6b6f4ef37f9ea9dcf82bda25bfa76b9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/white-hole-suck.ogg-8514af2990364a4343eab8eab740da18.oggstr"
+
+[deps]
+
+source_file="res://Assets/SFX/white-hole-suck.ogg"
+dest_files=[ "res://.import/white-hole-suck.ogg-8514af2990364a4343eab8eab740da18.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

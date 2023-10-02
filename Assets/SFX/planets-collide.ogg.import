@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/planets-collide.ogg-aef3244cc342848a288abb483ce23ce7.oggstr"
+
+[deps]
+
+source_file="res://Assets/SFX/planets-collide.ogg"
+dest_files=[ "res://.import/planets-collide.ogg-aef3244cc342848a288abb483ce23ce7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
