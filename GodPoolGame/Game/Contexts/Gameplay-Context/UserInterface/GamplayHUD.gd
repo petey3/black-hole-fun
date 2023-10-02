@@ -1,15 +1,18 @@
 extends Control
 class_name GameplayHUD
 
-onready var label = $Label
-onready var restart_button = $RestartButton
-onready var next_button = $NextButton
+onready var menu = $Menu
+onready var friends = $Friends
+onready var next_button = $Menu/NextButton
+onready var restart_button = $Menu/RestartButton
+onready var label = $Menu/Label
 
 func _ready():
 	EventServices.dispatch().subscribe(LevelStateChangeEvent.ID, self, "_on_level_state_change")
 	restart_button.connect("pressed", self, "_on_restart_pressed")
 	next_button.connect("pressed", self, "_on_next_pressed")
-	visible = false
+	menu.visible = false
+	friends.visible = true
 	next_button.disabled = true
 
 	
@@ -20,10 +23,12 @@ func _on_level_state_change(event: Event):
 		
 	if level_event.state_id == LossConditionMetState.ID:
 		label.text = "WASTED"
-		visible = true
+		menu.visible = true
+		friends.visible = false
 	elif level_event.state_id == WinConditionMetState.ID:
 		label.text = "WINNER"
-		visible = true
+		menu.visible = true
+		friends.visible = false
 		next_button.disabled = not level_event.can_go_to_next_level
 
 
@@ -34,4 +39,5 @@ func _on_restart_pressed():
 
 func _on_next_pressed():
 	visible = false
+	friends.visible = true
 	GameplayServices.levels().next_level()

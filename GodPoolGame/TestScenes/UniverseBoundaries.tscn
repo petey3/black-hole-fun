@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://GodPoolGame/TestScenes/UniverseBoundaries.gd" type="Script" id=1]
 [ext_resource path="res://JamKit/Feedback/Transform/TransformFeedback2D.gd" type="Script" id=2]
@@ -11,10 +11,8 @@
 [ext_resource path="res://Assets/Border/layer1.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Border/solid-border-purple.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Border/danger-panel.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Friends/buddy_test2.png" type="Texture" id=12]
 [ext_resource path="res://JamKit/Sequencers/Float/WaveSequencer.gd" type="Script" id=13]
 [ext_resource path="res://GodPoolGame/TestScenes/DangerPanel.gd" type="Script" id=14]
-[ext_resource path="res://Assets/Friends/chaos_test.png" type="Texture" id=15]
 
 [node name="UniverseBoundaries" type="Node2D"]
 script = ExtResource( 1 )
@@ -60,20 +58,6 @@ polygon = PoolVector2Array( 554.841, 653.723, 117.857, 508.631, 79.1092, 191.845
 position = Vector2( 1000, 508 )
 scale = Vector2( 1.35, 1.35 )
 z_index = 1
-
-[node name="Buddy" type="Node" parent="UniverseRoot/Border"]
-
-[node name="Sprite" type="Sprite" parent="UniverseRoot/Border/Buddy"]
-position = Vector2( 155, 919 )
-z_index = 1222
-texture = ExtResource( 12 )
-
-[node name="Chaos" type="Node" parent="UniverseRoot/Border"]
-
-[node name="Sprite" type="Sprite" parent="UniverseRoot/Border/Chaos"]
-position = Vector2( 1695, 908 )
-z_index = 1222
-texture = ExtResource( 15 )
 
 [node name="DangerPanel" type="Sprite" parent="UniverseRoot/Border"]
 modulate = Color( 1, 0.00784314, 0.00784314, 1 )
