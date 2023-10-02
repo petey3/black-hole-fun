@@ -15,7 +15,7 @@ bounce = 0.69
 [node name="Level 1" type="Node2D"]
 
 [node name="WhiteHole" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1157, 518 )
+position = Vector2( 1201, 529 )
 
 [node name="Planet" parent="." instance=ExtResource( 4 )]
 position = Vector2( 919, 524 )
