@@ -18,9 +18,28 @@ func enter(properties := {}) -> void:
 	var inline_timer = InlineTimer.wait(self, 3)
 	yield(inline_timer.timer, inline_timer.timeout)
 	
-	if GameplayServices.entities().are_all_live_planets_saved():
+	if _did_player_win():
 		state_machine.transition_to("WinConditionMetState")
-	elif GameplayServices.entities().are_all_live_planets_lost():
+	elif _did_player_lose():
 		state_machine.transition_to("LossConditionMetState")
 	else:
 		state_machine.transition_to("PlayerTurnState")
+
+
+func _did_player_win() -> bool:
+	if GameplayServices.entities().are_all_live_planets_saved():
+		return true
+		
+	# Otherwise, if there are no planets left but we saved some
+	# thats also a win
+	var are_no_planets_left = GameplayServices.entities().total_remaining_planet_count() == 0
+	var were_some_saved = GameplayServices.entities().saved_live_planets() > 0
+	if are_no_planets_left and were_some_saved:
+		return true
+	
+	return false
+	
+
+func _did_player_lose() -> bool:
+	return GameplayServices.entities().are_all_live_planets_lost()
+	
