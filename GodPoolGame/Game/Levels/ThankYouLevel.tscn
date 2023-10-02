@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://GodPoolGame/Game/Levels/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://JamKit/Fonts/Boldstrom-D.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://GodPoolGame/Game/Levels/ThankYouLevel.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 2 )
+
+[node name="Level" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Entities" parent="." index="0"]
+visible = false
+
+[node name="Top Label" parent="InLevelUIBounds" index="0"]
+anchor_top = 0.0
+bbcode_text = "[center]THANKS FOR PLAYING![/center]"
+text = "THANKS FOR PLAYING!"
+
+[node name="Bottom Label" parent="InLevelUIBounds" index="1"]
+anchor_top = 0.2
+bbcode_text = "[center]This game was made in 72 hours
+as part of Ludum Dare 54
+
+\"Limited Space\" - September 2023
+
+Jen Tella
+Nathan Holmes
+Dave Silva
+Eric Peterson[/center]"
+text = "This game was made in 72 hours
+as part of Ludum Dare 54
+
+\"Limited Space\" - September 2023
+
+Jen Tella
+Nathan Holmes
+Dave Silva
+Eric Peterson"
+
+[node name="ReturnToTitleButton" type="Button" parent="InLevelUIBounds" index="2"]
+anchor_left = 0.3
+anchor_top = 0.9
+anchor_right = 0.7
+anchor_bottom = 1.0
+margin_left = -6.0
+margin_top = -20.0
+margin_right = 6.0
+custom_fonts/font = SubResource( 1 )
+text = "Return to Title Screen"
+
+[connection signal="pressed" from="InLevelUIBounds/ReturnToTitleButton" to="." method="_on_ReturnToTitleButton_pressed"]
