@@ -9,3 +9,12 @@ class_name LevelController
 # -- Player Turn
 # -- Chaos Turn
 # -- (Repeats)
+
+
+onready var state_machine = $StateMachine
+
+func _ready():
+	EventServices.dispatch().subscribe(NextLevelEvent.ID, self, "_on_next_level_event")
+
+func _on_next_level_event(event: Event):
+	state_machine.transition_to("SetupLevelState")

@@ -40,7 +40,6 @@ func physics_update(delta):
 	elif GameplayServices.entities().are_all_live_planets_lost():
 		state_machine.transition_to("LossConditionMetState")
 		return
-	
 	has_player_shot = false
 	state_machine.transition_to("ChaosTurnState")
 

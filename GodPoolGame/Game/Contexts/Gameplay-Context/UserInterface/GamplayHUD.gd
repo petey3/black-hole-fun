@@ -33,5 +33,5 @@ func _on_restart_pressed():
 	
 
 func _on_next_pressed():
-	# TODO: Request next level to load
-	pass
+	visible = false
+	GameplayServices.levels().next_level()

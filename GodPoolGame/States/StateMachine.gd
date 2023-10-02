@@ -71,3 +71,5 @@ func transition_to(target_state_name: String, properties: Dictionary = {}) -> vo
 	state.state_machine = self
 	state.enter(properties)
 	emit_signal("transitioned", state.name)
+
+	

@@ -23,6 +23,8 @@ var universe_center = Vector2.ZERO
 
 func _ready():
 	EventServices.dispatch().subscribe(EnterNextUniverseStateEvent.ID, self, "_on_universe_change_event")
+	EventServices.dispatch().subscribe(ReloadedCurrentSceneEvent.ID, self, "_on_reload_current_scene_event")
+	EventServices.dispatch().subscribe(NextLevelEvent.ID, self, "_on_next_level_event")
 	
 	universe_center = get_viewport_rect().size / 2
 	camera.position = universe_center
@@ -36,6 +38,11 @@ func _print():
 	print("BOTTOM POINTS")
 	_print_points_for_polygon(bottom_half_shape, bottom_half.position)
 
+func _on_reload_current_scene_event(event: Event):
+	_set_boundary_scale(1)
+
+func _on_next_level_event(event: Event):
+	_set_boundary_scale(1)
 	
 func _print_points_for_polygon(collision_polygon: CollisionPolygon2D, origin_offset: Vector2):
 	var vector_array = collision_polygon.polygon

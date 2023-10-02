@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://JamKit/Feedback/BaseFeedback.gd"
 }, {
+"base": "Node2D",
+"class": "BaseLevel",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Levels/BaseLevel.gd"
+}, {
 "base": "TweenFeedback2D",
 "class": "BaseTweenTransformFeedback2D",
 "language": "GDScript",
@@ -169,6 +174,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://GodPoolGame/Game/LevelController/Events/LevelStateChangeEvent.gd"
 }, {
+"base": "Event",
+"class": "LoadNewLevelEvent",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Events/LoadNewLevelEvent.gd"
+}, {
 "base": "State",
 "class": "LossConditionMetState",
 "language": "GDScript",
@@ -178,6 +188,11 @@ _global_script_classes=[ {
 "class": "MovementComponent2D",
 "language": "GDScript",
 "path": "res://JamKit/Components/Movement/MovementComponent2D.gd"
+}, {
+"base": "Event",
+"class": "NextLevelEvent",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Events/NextLevelEvent.gd"
 }, {
 "base": "Object",
 "class": "Normalizer",
@@ -361,6 +376,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BaseFeedback": "",
+"BaseLevel": "",
 "BaseTweenTransformFeedback2D": "",
 "BlackHole": "",
 "BoolSequencer": "",
@@ -392,8 +408,10 @@ _global_script_class_icons={
 "LevelEntityInfo": "",
 "LevelServices": "",
 "LevelStateChangeEvent": "",
+"LoadNewLevelEvent": "",
 "LossConditionMetState": "",
 "MovementComponent2D": "",
+"NextLevelEvent": "",
 "Normalizer": "",
 "Planet": "",
 "PlanetChangeEvent": "",
