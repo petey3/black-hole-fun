@@ -13,8 +13,8 @@ export (float) var kill_zone_radius = 10
 
 func _ready():
 	var tween = create_tween()
-	tween.tween_property($Node2D/SpiralArms, "rotation_degrees", 360, 10)
-	tween.tween_property($Node2D/SpiralArms, "rotation_degrees", 0, 0)
+	tween.tween_property($Node2D/SpiralArms, "rotation_degrees", 360.0, 10.0)
+	tween.tween_property($Node2D/SpiralArms, "rotation_degrees", 0.0, 0.0)
 	tween.set_loops()
 	tween.play()
 	pass
