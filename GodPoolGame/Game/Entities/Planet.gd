@@ -6,6 +6,8 @@ export (int) var population = 0 setget _set_population
 onready var sprite_face = $Sprite/Face
 onready var sprite_effect = $Sprite/Effect
 
+onready var hit_feedback_runner = $HitFeedbackRunner
+
 func _ready():
 	randomize()
 	var bases = [
@@ -58,6 +60,12 @@ func _add_to_groups():
 	add_to_group(GodPoolGameConstants.GROUP_ID_BLACKHOLE_SWALLOWABLE)
 	add_to_group(GodPoolGameConstants.GROUP_ID_VOID_SWALLOWABLE)
 	add_to_group(GodPoolGameConstants.GROUP_ID_WHITE_HOLE_CAPTURABLE)
+
+
+func _on_body_entered(node: Node):
+	hit_feedback_runner.execute_feedbacks()
+	._on_body_entered(node)
+
 
 
 func _on_void_destroy():
