@@ -18,11 +18,22 @@
 script = ExtResource( 1 )
 
 [node name="Background" type="Sprite" parent="."]
+position = Vector2( 112, 37 )
 z_index = -2
-texture = ExtResource( 10 )
+texture = ExtResource( 8 )
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="InnerSpaceMask" type="Polygon2D" parent="."]
+position = Vector2( 27, 164 )
+scale = Vector2( 1.85819, 1.24059 )
+z_index = -2
+texture = ExtResource( 10 )
+texture_offset = Vector2( 150, 100 )
+texture_scale = Vector2( 1.3, 1.3 )
+invert_enable = true
+polygon = PoolVector2Array( 554.841, 653.723, 117.857, 508.631, 79.6474, 191.038, 289.529, -14.5093, 699.067, -31.4368, 882.579, 106.401, 896.033, 303.889, 779.253, 488.479 )
 
 [node name="UniverseRoot" type="Node2D" parent="."]
 
@@ -44,15 +55,6 @@ collision_mask = 3
 scale = Vector2( 1.875, 1.875 )
 build_mode = 1
 polygon = PoolVector2Array( 0, 0, -0.533333, -385.067, 128, -386.133, 171.2, -150.4, 568.533, -60.2667, 787, -165, 907, -292, 1025, -290, 1027, 0 )
-
-[node name="InnerSpaceMask" type="Polygon2D" parent="UniverseRoot"]
-position = Vector2( 27, 164 )
-scale = Vector2( 1.85819, 1.24059 )
-z_index = -2
-texture = ExtResource( 8 )
-texture_offset = Vector2( 150, 100 )
-texture_scale = Vector2( 1.3, 1.3 )
-polygon = PoolVector2Array( 554.841, 653.723, 117.857, 508.631, 79.1092, 191.845, 289.529, -14.5093, 699.067, -31.4368, 882.579, 106.401, 896.033, 303.889, 779.253, 488.479 )
 
 [node name="Border" type="Node2D" parent="UniverseRoot"]
 position = Vector2( 1000, 508 )
@@ -98,6 +100,30 @@ texture = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Node2D" type="Node2D" parent="UniverseRoot/Border"]
+
+[node name="Sprite" type="Sprite" parent="UniverseRoot/Border/Node2D"]
+position = Vector2( -1791.61, 0.416626 )
+scale = Vector2( 1.03421, 1.05198 )
+texture = ExtResource( 10 )
+
+[node name="Sprite2" type="Sprite" parent="UniverseRoot/Border/Node2D"]
+position = Vector2( 1785.93, -3.70367 )
+scale = Vector2( 1.03421, 1.05198 )
+texture = ExtResource( 10 )
+
+[node name="Sprite5" type="Sprite" parent="UniverseRoot/Border/Node2D"]
+position = Vector2( 432.394, 1267.29 )
+scale = Vector2( 3.1143, -1.08701 )
+texture = ExtResource( 10 )
+offset = Vector2( -141.815, 235.178 )
+
+[node name="Sprite6" type="Sprite" parent="UniverseRoot/Border/Node2D"]
+position = Vector2( 460, -763.704 )
+scale = Vector2( 3.1143, -1.08701 )
+texture = ExtResource( 10 )
+offset = Vector2( -141.815, 235.178 )
 
 [node name="FeedbackRunner" type="Node" parent="."]
 script = ExtResource( 3 )
