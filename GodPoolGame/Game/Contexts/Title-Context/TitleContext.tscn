@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://GodPoolGame/Game/Contexts/Title-Context/TitleContext.gd" type="Script" id=1]
 [ext_resource path="res://Assets/MainScreen/Title_BG.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/black-hole.png" type="Texture" id=5]
 [ext_resource path="res://Assets/MainScreen/Title_names.png" type="Texture" id=6]
 [ext_resource path="res://Assets/MainScreen/Title_start-hover (1).png" type="Texture" id=7]
+[ext_resource path="res://Assets/Friends/buddy_happy.png" type="Texture" id=8]
 [ext_resource path="res://Assets/MainScreen/Title_start-base.png" type="Texture" id=9]
 
 [node name="TitleScene" type="Node"]
@@ -30,10 +31,10 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
 
 [node name="StartButton" type="TextureButton" parent="ColorRect"]
-margin_left = 108.0
-margin_top = 516.0
-margin_right = 2777.0
-margin_bottom = 1554.0
+margin_left = 113.0
+margin_top = 456.0
+margin_right = 2951.0
+margin_bottom = 1665.0
 rect_scale = Vector2( 0.4, 0.4 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 9 )
@@ -49,3 +50,8 @@ texture = ExtResource( 6 )
 position = Vector2( 1536, 364 )
 scale = Vector2( 1.7, 1.7 )
 texture = ExtResource( 5 )
+
+[node name="Friend" type="Sprite" parent="ColorRect"]
+visible = false
+position = Vector2( 1541, 498 )
+texture = ExtResource( 8 )
