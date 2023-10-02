@@ -1,33 +1,33 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://GodPoolGame/Game/Entities/WhiteHole.tscn" type="PackedScene" id=1]
-[ext_resource path="res://GodPoolGame/Game/Levels/Level 2.gd" type="Script" id=2]
-[ext_resource path="res://GodPoolGame/Game/Entities/CelestialCueBall.tscn" type="PackedScene" id=3]
-[ext_resource path="res://GodPoolGame/Game/Entities/Planet.tscn" type="PackedScene" id=4]
-
-[sub_resource type="PhysicsMaterial" id=2]
-friction = 0.3
-bounce = 0.69
+[ext_resource path="res://GodPoolGame/Game/Levels/Level 2.gd" type="Script" id=1]
+[ext_resource path="res://GodPoolGame/Game/Levels/Level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GodPoolGame/Game/Entities/Planet.tscn" type="PackedScene" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.3
 bounce = 0.69
 
-[node name="Level 2" type="Node2D"]
-script = ExtResource( 2 )
+[node name="Level" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
 
-[node name="WhiteHole" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1119, 362 )
-
-[node name="Planet" parent="." instance=ExtResource( 4 )]
+[node name="Planet" parent="Entities" index="2" instance=ExtResource( 3 )]
 position = Vector2( 919, 524 )
-physics_material_override = SubResource( 2 )
+physics_material_override = SubResource( 1 )
 population = 1
 
-[node name="Planet2" parent="." instance=ExtResource( 4 )]
+[node name="Planet2" parent="Entities" index="3" instance=ExtResource( 3 )]
 position = Vector2( 711, 243 )
 population = 1
 
-[node name="CelestialCueBall" parent="." instance=ExtResource( 3 )]
-position = Vector2( 637, 536 )
-physics_material_override = SubResource( 1 )
+[node name="Top Label" parent="InLevelUIBounds" index="0"]
+bbcode_text = "[center]Planets swallowed by the encroaching[shake rate=10 level=10] [color=#bc9aff]VOID[/color][/shake] are lost forever[/center]
+
+"
+text = "Planets swallowed by the encroaching VOID are lost forever
+
+"
+
+[node name="Bottom Label" parent="InLevelUIBounds" index="1"]
+bbcode_text = "[center]Save as many as you can through the [wave amp=50 freq=2][color=#F8EA6D]GATEWAY[/color][/wave][/center]"
+text = "Save as many as you can through the GATEWAY"

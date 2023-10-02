@@ -1,33 +1,20 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://GodPoolGame/Game/Entities/WhiteHole.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GodPoolGame/Game/Levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GodPoolGame/Game/Levels/Level 1.gd" type="Script" id=2]
-[ext_resource path="res://GodPoolGame/Game/Entities/CelestialCueBall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GodPoolGame/Game/Entities/Planet.tscn" type="PackedScene" id=4]
-[ext_resource path="res://GodPoolGame/TestSubjects/BlackHole.tscn" type="PackedScene" id=5]
 
-[sub_resource type="PhysicsMaterial" id=2]
-friction = 0.3
-bounce = 0.69
-
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 0.3
-bounce = 0.69
-
-[node name="Level 1" type="Node2D"]
+[node name="Level 1" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="WhiteHole" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1202, 515 )
+[node name="Planet" parent="Entities" index="1" instance=ExtResource( 4 )]
+position = Vector2( 941, 521 )
+population = 100
 
-[node name="Planet" parent="." instance=ExtResource( 4 )]
-position = Vector2( 919, 524 )
-physics_material_override = SubResource( 2 )
-population = 1
+[node name="Top Label" parent="InLevelUIBounds" index="0"]
+bbcode_text = "[center]Click and hold on your Cosmic Cue[/center]"
+text = "Click and hold on your Cosmic Cue"
 
-[node name="CelestialCueBall" parent="." instance=ExtResource( 3 )]
-position = Vector2( 637, 536 )
-physics_material_override = SubResource( 1 )
-
-[node name="BlackHole" parent="." instance=ExtResource( 5 )]
-position = Vector2( 929, 705 )
+[node name="Bottom Label" parent="InLevelUIBounds" index="1"]
+bbcode_text = "[center]Release to shoot[/center]"
+text = "Release to shoot"
