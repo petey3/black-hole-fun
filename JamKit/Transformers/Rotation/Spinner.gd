@@ -3,18 +3,23 @@ class_name Spinner
 
 enum SpinDirection { CLOCKWISE, COUNTER_CLOCKWISE }
 
-export (NodePath) var target_path
+export (NodePath) var target_path = null
 export (SpinDirection) var spin_direction
+export (float) var spin_speed = 5
 export (bool) var spin_forever = true
-export (NodePath) var stop_calculator
+export (NodePath) var stop_calculator = null
 
 var is_spinning = false
 
 func _get_target():
+	if not target_path:
+		return null
 	return get_node(target_path)
 	
 
 func _get_calculator():
+	if not stop_calculator:
+		return null
 	return get_node(stop_calculator)
 	
 	
@@ -37,7 +42,7 @@ func _process(delta):
 		return
 		
 	var current_rotation = target.rotation_degrees
-	var rot_speed = rad2deg(5)
+	var rot_speed = rad2deg(spin_speed)
 	var new_rotation_delta = rot_speed * delta if is_spinning else 0
 	
 	if is_spinning:
