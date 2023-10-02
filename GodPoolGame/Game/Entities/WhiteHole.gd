@@ -3,11 +3,15 @@ class_name WhiteHole
 
 const CAPTURE_METHOD = "_on_collide_with_whitehole"
 
+onready var wave_sequencer = $WaveSequencer
+
 func _ready():
 	EventServices.dispatch().subscribe(LevelStateChangeEvent.ID, self, "_on_level_state_changed")
 	if not area.is_connected("body_entered", self, "_on_body_entered"):
 		area.connect("body_entered", self, "_on_body_entered")
 	_add_to_groups()
+	
+	wave_sequencer.connect("new_value", self, "_on_new_wave_value")
 
 
 func _add_to_groups():
@@ -35,3 +39,7 @@ func _on_level_state_changed(event: Event):
 
 func _should_destroy_from_void() -> bool:
 	return false
+	
+	
+func _on_new_wave_value(wave_value: float):
+	sprite.position.y = wave_value

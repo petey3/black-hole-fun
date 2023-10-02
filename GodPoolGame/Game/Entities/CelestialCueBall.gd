@@ -8,11 +8,13 @@ onready var pointer_sprite = $Pointer
 onready var pull_back_trail_container = $PullBackTrail
 onready var flick_timer = $PullBackTrail/FlickTimer
 
+onready var wave_sequencer = $WaveSequencer
+
 var velocity = Vector2.ZERO
 var direction = Vector2.ZERO
 var stored_force = Vector2.ZERO
 var shot_start_pos = Vector2.ZERO
-
+var starting_sprite_scale = Vector2.ZERO
 
 func _ready():
 	._ready()
@@ -20,12 +22,14 @@ func _ready():
 
 	pointer_sprite.visible = false
 	pull_back_trail_container.visible = false
+	starting_sprite_scale = sprite.scale
 	
 	
 func _setup_signals():	
 	pull_back_component.connect("pulling_back", self, "_on_pulling_back")
 	pull_back_component.connect("pull_back_released", self, "_on_pull_back_released")
 	flick_timer.connect("timeout", self, "_on_flick_timer_timeout")
+	wave_sequencer.connect("new_value", self, "_on_new_wave_value")
 	
 	self.connect("mouse_entered", self, "_on_mouse_entered")
 	self.connect("mouse_exited", self, "_on_mouse_exited")
@@ -88,6 +92,11 @@ func _on_flick_timer_timeout():
 	stored_force = Vector2.ZERO
 	pull_back_trail_container.visible = false
 	pull_back_trail_container.rotation = 0
+	
+	
+func _on_new_wave_value(new_value: float):
+	var calculated_value = starting_sprite_scale.x + (abs(new_value) * 0.1)
+	sprite.scale = Vector2(calculated_value, calculated_value)
 		
 
 func _add_to_groups():

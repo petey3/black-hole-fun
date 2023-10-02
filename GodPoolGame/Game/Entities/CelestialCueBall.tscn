@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://GodPoolGame/Game/Entities/CelestialCueBall.gd" type="Script" id=1]
 [ext_resource path="res://GodPoolGame/Game/Entities/CelestialBody.tscn" type="PackedScene" id=2]
+[ext_resource path="res://JamKit/Sequencers/Float/WaveSequencer.gd" type="Script" id=3]
 [ext_resource path="res://Assets/cue-ball.png" type="Texture" id=4]
 [ext_resource path="res://Assets/arrow.png" type="Texture" id=5]
 [ext_resource path="res://JamKit/Feedback/FeedbackRunner.gd" type="Script" id=6]
@@ -53,6 +54,9 @@ should_return_to_previous = false
 [node name="FlickTimer" type="Timer" parent="PullBackTrail" index="2"]
 wait_time = 0.2
 one_shot = true
+
+[node name="WaveSequencer" type="Node" parent="." index="5"]
+script = ExtResource( 3 )
 
 [connection signal="pull_back_released" from="PullBackComponent" to="PullBackTrail" method="_on_PullBackComponent_pull_back_released"]
 [connection signal="pulling_back" from="PullBackComponent" to="PullBackTrail" method="_on_PullBackComponent_pulling_back"]

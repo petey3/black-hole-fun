@@ -6,7 +6,11 @@ export (int) var population = 0 setget _set_population
 onready var sprite_face = $Sprite/Face
 onready var sprite_effect = $Sprite/Effect
 
+onready var wave_sequencer = $WaveSequencer
 onready var hit_feedback_runner = $HitFeedbackRunner
+
+var idle_rotation_value = 0
+var random_rotation_offset = 0
 
 func _ready():
 	randomize()
@@ -38,6 +42,13 @@ func _ready():
 	
 	if population == 0:
 		sprite.visible = false
+	
+	idle_rotation_value = Random.randf_range(10.0, 20.0)
+	random_rotation_offset = Random.randf_range(idle_rotation_value * -1, idle_rotation_value)
+	wave_sequencer.period = Random.randf_range(0.3, 2)
+	wave_sequencer.connect("new_value", self, "_on_new_wave_value")	
+	
+		
 
 func has_life() -> bool:
 	return population > 0
@@ -67,7 +78,6 @@ func _on_body_entered(node: Node):
 	._on_body_entered(node)
 
 
-
 func _on_void_destroy():
 	var void_event = PlanetChangeEvent.new(PlanetChangeEvent.ChangeType.VOID, population)
 	EventServices.dispatch().broadcast(void_event)
@@ -90,3 +100,6 @@ func _on_collide_with_whitehole():
 	var whitehole_event = PlanetChangeEvent.new(PlanetChangeEvent.ChangeType.WHITEHOLE, population)
 	EventServices.dispatch().broadcast(whitehole_event)
 	._on_collide_with_whitehole()
+
+func _on_new_wave_value(new_value: float):
+	sprite.rotation_degrees = (new_value * idle_rotation_value) + random_rotation_offset
