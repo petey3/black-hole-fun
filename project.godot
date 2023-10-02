@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://JamKit/Feedback/BaseFeedback.gd"
 }, {
-"base": "Node2D",
-"class": "BaseLevel",
-"language": "GDScript",
-"path": "res://GodPoolGame/Game/Levels/BaseLevel.gd"
-}, {
 "base": "TweenFeedback2D",
 "class": "BaseTweenTransformFeedback2D",
 "language": "GDScript",
@@ -148,6 +143,11 @@ _global_script_classes=[ {
 "class": "IntSequencer",
 "language": "GDScript",
 "path": "res://JamKit/Sequencers/Int/IntSequencer.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://GodPoolGame/Game/Levels/Level.gd"
 }, {
 "base": "Node",
 "class": "LevelController",
@@ -361,7 +361,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BaseFeedback": "",
-"BaseLevel": "",
 "BaseTweenTransformFeedback2D": "",
 "BlackHole": "",
 "BoolSequencer": "",
@@ -388,6 +387,7 @@ _global_script_class_icons={
 "GreenEvent": "",
 "InlineTimer": "",
 "IntSequencer": "",
+"Level": "",
 "LevelController": "",
 "LevelEntityInfo": "",
 "LevelServices": "",

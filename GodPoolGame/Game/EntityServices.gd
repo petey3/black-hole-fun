@@ -1,21 +1,34 @@
 extends Node
 class_name EntityServices
 
-var level_entity_info: LevelEntityInfo = null
+var current_level: Level = null
 
-func create_level_info():
-	if level_entity_info:
-		return
+func register_current_level(level: Level):
+	clear_registered_level()
+	var level_entity_info = create_level_info()
+	level.level_entity_info = level_entity_info
+	self.current_level = level
 	
+
+func create_level_info() -> LevelEntityInfo:
 	var starting_live_planets = remaining_live_planet_count()
 	var starting_dead_planets = remaining_dead_planet_count()
-	self.level_entity_info = LevelEntityInfo.new(starting_live_planets, starting_dead_planets)
+	var level_entity_info = LevelEntityInfo.new(starting_live_planets, starting_dead_planets)
 	EventServices.dispatch().subscribe(PlanetChangeEvent.ID, self, "_on_planet_change_event")
 	EventServices.dispatch().subscribe(ReloadedCurrentSceneEvent.ID, self, "_on_reloaded_scene_event")
 	
+	return level_entity_info
 	
-func clear_level_info():
-	level_entity_info = null
+	
+func get_level_entity_info() -> LevelEntityInfo:
+	if not current_level:
+		return null
+		
+	return current_level.level_entity_info
+	
+	
+func clear_registered_level():
+	current_level = null
 
 
 func _on_planet_change_event(event: Event):
@@ -29,23 +42,23 @@ func _on_planet_change_event(event: Event):
 	match change_event.change_type:
 		PlanetChangeEvent.ChangeType.VOID:
 			print("Lost to the void")			
-			if not level_entity_info:
+			if not get_level_entity_info():
 				return
-			level_entity_info.lost_live_planet_count += 1
+			current_level.level_entity_info.lost_live_planet_count += 1
 		PlanetChangeEvent.ChangeType.BLACKHOLE:
 			print("Lost to the blackhole")
-			if not level_entity_info:
+			if not get_level_entity_info():
 				return
-			level_entity_info.lost_live_planet_count += 1
+			current_level.level_entity_info.lost_live_planet_count += 1
 		PlanetChangeEvent.ChangeType.WHITEHOLE:
 			print("Saved by the whitehole")
-			if not level_entity_info:
+			if not get_level_entity_info():
 				return
-			level_entity_info.saved_live_planet_count += 1
+			current_level.level_entity_info.saved_live_planet_count += 1
 
 
 func _on_reloaded_scene_event(event: Event):
-	clear_level_info()
+	clear_registered_level()
 
 
 func get_all_planets() -> Array:
@@ -104,31 +117,31 @@ func are_bodies_still_moving() -> bool:
 	
 	
 func saved_live_planets() -> int:
-	if not level_entity_info:
+	if not get_level_entity_info():
 		return 0
 		
-	return level_entity_info.saved_live_planet_count
+	return current_level.level_entity_info.saved_live_planet_count
 	
 	
 func lost_live_planets() -> int:
-	if not level_entity_info:
+	if not get_level_entity_info():
 		return 0
 		
-	return level_entity_info.lost_live_planet_count
+	return current_level.level_entity_info.lost_live_planet_count
 	
 	
 func are_all_live_planets_lost() -> bool:
-	if not level_entity_info:
+	if not get_level_entity_info():
 		return false
 		
-	return lost_live_planets() == level_entity_info.starting_live_planet_count
+	return lost_live_planets() == current_level.level_entity_info.starting_live_planet_count
 	
 	
 func are_all_live_planets_saved() -> bool:
-	if not level_entity_info:
+	if not get_level_entity_info():
 		return false
 		
 	print("Saved Live Planets " + str(saved_live_planets()))
-	print("Starting Live Planets " + str(level_entity_info.starting_live_planet_count))
-	return saved_live_planets() == level_entity_info.starting_live_planet_count
+	print("Starting Live Planets " + str(current_level.level_entity_info.starting_live_planet_count))
+	return saved_live_planets() == current_level.level_entity_info.starting_live_planet_count
 	
