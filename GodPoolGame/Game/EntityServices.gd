@@ -13,6 +13,10 @@ func register_current_level(level: Level):
 func create_level_info() -> LevelEntityInfo:
 	var starting_live_planets = remaining_live_planet_count()
 	var starting_dead_planets = remaining_dead_planet_count()
+	
+	print("REGISTERING NEW LEVEL")
+	print("Starting Planets: " + str(starting_live_planets))
+	
 	var level_entity_info = LevelEntityInfo.new(starting_live_planets, starting_dead_planets)
 	EventServices.dispatch().subscribe(PlanetChangeEvent.ID, self, "_on_planet_change_event")
 	EventServices.dispatch().subscribe(ReloadedCurrentSceneEvent.ID, self, "_on_reloaded_scene_event")
@@ -135,7 +139,9 @@ func are_all_live_planets_lost() -> bool:
 	if not get_level_entity_info():
 		return false
 		
-	return lost_live_planets() == current_level.level_entity_info.starting_live_planet_count
+	var none_were_saved = saved_live_planets() == 0
+	var none_are_left = total_remaining_planet_count() == 0
+	return none_were_saved && none_are_left
 	
 	
 func are_all_live_planets_saved() -> bool:
