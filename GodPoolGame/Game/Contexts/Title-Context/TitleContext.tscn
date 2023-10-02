@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://GodPoolGame/Game/Contexts/Title-Context/TitleContext.gd" type="Script" id=1]
+[ext_resource path="res://Assets/MainScreen/Title_BG.png" type="Texture" id=2]
+[ext_resource path="res://Assets/MainScreen/Title.png" type="Texture" id=3]
+[ext_resource path="res://Assets/MainScreen/Title_start-click.png" type="Texture" id=4]
+[ext_resource path="res://Assets/black-hole.png" type="Texture" id=5]
+[ext_resource path="res://Assets/MainScreen/Title_names.png" type="Texture" id=6]
+[ext_resource path="res://Assets/MainScreen/Title_credits-base.png" type="Texture" id=7]
+[ext_resource path="res://Assets/MainScreen/Title_start-hover.png" type="Texture" id=8]
+[ext_resource path="res://Assets/MainScreen/Title_start-base.png" type="Texture" id=9]
 
 [node name="TitleScene" type="Node"]
 script = ExtResource( 1 )
@@ -8,3 +16,42 @@ script = ExtResource( 1 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="Background" type="Sprite" parent="ColorRect"]
+position = Vector2( 964, 563 )
+scale = Vector2( 0.33494, 0.347424 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="Sprite" parent="ColorRect"]
+position = Vector2( 639, 259 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+
+[node name="StartButton" type="TextureButton" parent="ColorRect"]
+margin_left = 108.0
+margin_top = 516.0
+margin_right = 2777.0
+margin_bottom = 1554.0
+rect_scale = Vector2( 0.4, 0.4 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 8 )
+
+[node name="Names" type="Sprite" parent="ColorRect"]
+position = Vector2( 980, 1003 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 6 )
+
+[node name="BlackHole" type="Sprite" parent="ColorRect"]
+position = Vector2( 1536, 364 )
+scale = Vector2( 1.7, 1.7 )
+texture = ExtResource( 5 )
+
+[node name="Credits" type="Sprite" parent="ColorRect"]
+position = Vector2( 1568, 789 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 7 )
