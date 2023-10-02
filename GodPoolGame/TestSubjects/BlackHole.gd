@@ -10,6 +10,14 @@ export (float) var influence = 1500
 export (float) var dead_zone = 5
 export (float) var kill_zone_radius = 10
 
+onready var halo_sprite = $Node2D/Halo
+onready var hole_sprite = $Node2D/Hole
+
+onready var primary_wave_sequencer = $WaveSequencers/PrimaryScaleWaveSequencer
+onready var halo_x_wave_sequencer = $WaveSequencers/HaloXWaveSequencer
+onready var halo_y_wave_sequencer = $WaveSequencers/HaloYWaveSequencer
+
+var halo_sprite_starting_position
 
 func _ready():
 	var tween = create_tween()
@@ -17,8 +25,12 @@ func _ready():
 	tween.tween_property($Node2D/SpiralArms, "rotation_degrees", 0.0, 0.0)
 	tween.set_loops()
 	tween.play()
-	pass
+	
+	primary_wave_sequencer.connect("new_value", self, "_on_new_wave_value")
+	halo_x_wave_sequencer.connect("new_value", self, "_on_new_x_wave_value")
+	halo_y_wave_sequencer.connect("new_value", self, "_on_new_y_wave_value")
 
+	halo_sprite_starting_position = halo_sprite.position
 
 func _physics_process(delta):
 	var celestial_bodies = get_tree().get_nodes_in_group(GodPoolGameConstants.GROUP_ID_BLACKHOLE_MOVEABLE)
@@ -40,3 +52,15 @@ func _physics_process(delta):
 		
 		var motion_vector = -output_magnitude * direction
 		body.apply_central_impulse(motion_vector)
+
+
+func _on_new_wave_value(new_value: float):
+	hole_sprite.scale.x = 0.7 + (new_value * 0.4)
+	hole_sprite.scale.y = 0.7 + (new_value * 0.4)
+
+
+func _on_new_x_wave_value(new_value: float):
+	halo_sprite.position.x = halo_sprite_starting_position.x + new_value * 0.3
+	
+func _on_new_y_wave_value(new_value: float):
+	halo_sprite.position.y = halo_sprite_starting_position.y + new_value * 0.3
