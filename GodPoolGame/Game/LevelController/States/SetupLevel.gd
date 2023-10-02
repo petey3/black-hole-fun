@@ -4,6 +4,7 @@ class_name SetupLevelState
 const ID = "state.setup_level"
 
 func enter(properties := {}) -> void:
+	.enter(properties)
 	print("Entered SETUP LEVEL STATE")
 	var level_state_event = LevelStateChangeEvent.new(ID, false)
 	EventServices.dispatch().broadcast(level_state_event)

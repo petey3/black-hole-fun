@@ -7,6 +7,7 @@ onready var collision_shape = $CollisionShape2D
 onready var sprite = $Sprite
 
 var should_destroy_on_contact = false
+var has_been_swallowed_or_captured = false
 
 func _ready():
 	EventServices.dispatch().subscribe(LevelStateChangeEvent.ID, self, "_on_level_state_changed")
@@ -55,10 +56,12 @@ func _should_destroy_from_void() -> bool:
 
 
 func _on_swallowed_by_blackhole():
+	has_been_swallowed_or_captured = true
 	print("BLACKHOLED")
 	queue_free()
 
 
 func _on_collide_with_whitehole():
+	has_been_swallowed_or_captured = true
 	print("WHITEHOLED")
 	queue_free()

@@ -4,6 +4,7 @@ class_name ChaosTurnState
 const ID = "state.chaos_turn"
 
 func enter(properties := {}) -> void:
+	.enter(properties)
 	print("Entered CHAOS TURN STATE")
 		
 	var intro_timer = InlineTimer.wait(self, 0.5)

@@ -7,9 +7,12 @@ var has_player_shot = false
 var has_triggered_first_frame = false
 
 func _ready():
+	._ready()
 	EventServices.dispatch().subscribe(PlayerShot.ID, self, "_on_player_shot")
 
+
 func enter(properties := {}) -> void:
+	.enter(properties)
 	print("Entered PLAYER TURN STATE")
 	has_player_shot = false
 	var level_state_event = LevelStateChangeEvent.new(ID, true)

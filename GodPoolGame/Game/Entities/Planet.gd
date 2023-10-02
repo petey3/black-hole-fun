@@ -67,12 +67,18 @@ func _on_void_destroy():
 
 
 func _on_swallowed_by_blackhole():
+	if has_been_swallowed_or_captured:
+		return 
+		
 	var blackhole_event = PlanetChangeEvent.new(PlanetChangeEvent.ChangeType.BLACKHOLE, population)
 	EventServices.dispatch().broadcast(blackhole_event)
 	._on_swallowed_by_blackhole()
 
 
 func _on_collide_with_whitehole():
+	if has_been_swallowed_or_captured:
+		return 
+		
 	var whitehole_event = PlanetChangeEvent.new(PlanetChangeEvent.ChangeType.WHITEHOLE, population)
 	EventServices.dispatch().broadcast(whitehole_event)
 	._on_collide_with_whitehole()
