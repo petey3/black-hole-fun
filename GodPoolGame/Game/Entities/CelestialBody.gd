@@ -55,13 +55,13 @@ func _should_destroy_from_void() -> bool:
 	return void_swallowable and in_contact_with_void and should_destroy_on_contact
 
 
-func _on_swallowed_by_blackhole():
+func _on_swallowed_by_blackhole(blackhole_center: Vector2):
 	has_been_swallowed_or_captured = true
 	print("BLACKHOLED")
 	queue_free()
 
 
-func _on_collide_with_whitehole():
+func _on_collide_with_whitehole(whitehole_center: Vector2):
 	has_been_swallowed_or_captured = true
 	print("WHITEHOLED")
 	queue_free()

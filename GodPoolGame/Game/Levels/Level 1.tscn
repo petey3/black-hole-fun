@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GodPoolGame/Game/Levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GodPoolGame/Game/Levels/Level.gd" type="Script" id=2]
+[ext_resource path="res://GodPoolGame/TestSubjects/BlackHole.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GodPoolGame/Game/Entities/Planet.tscn" type="PackedScene" id=4]
 
 [node name="Level 1" instance=ExtResource( 1 )]
@@ -18,3 +19,6 @@ text = "Click and hold on your Cosmic Cue"
 [node name="Bottom Label" parent="InLevelUIBounds" index="1"]
 bbcode_text = "[center]Release to shoot[/center]"
 text = "Release to shoot"
+
+[node name="BlackHole" parent="." index="2" instance=ExtResource( 3 )]
+position = Vector2( 1076, 527 )

@@ -109,7 +109,7 @@ func _on_destroy():
 	queue_free()
 
 
-func _on_swallowed_by_blackhole():
+func _on_swallowed_by_blackhole(center: Vector2):
 	var scene_load = load(CueBallScenePath)
 	var scene_to_spawn = scene_load.instance()
 	scene_to_spawn.scale = self.scale

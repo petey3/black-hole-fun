@@ -1,7 +1,7 @@
 extends RigidBody2D
 class_name BlackHole
 
-const SWALLOW_METHOD = "_on_swallowed_by_blackhole"
+const SWALLOW_METHOD = "_on_swallowed_by_blackhole" # expects 1 Vector2 arg
 
 signal swallow_body(body)
 
@@ -30,7 +30,7 @@ func _physics_process(delta):
 		var is_swallowable = body.is_in_group(GodPoolGameConstants.GROUP_ID_BLACKHOLE_SWALLOWABLE)
 		if is_in_kill_zone and is_swallowable:
 			if body.has_method(SWALLOW_METHOD):
-				body.call(SWALLOW_METHOD)
+				body.call(SWALLOW_METHOD, position)
 			emit_signal("swallow_body", body)
 			continue
 		

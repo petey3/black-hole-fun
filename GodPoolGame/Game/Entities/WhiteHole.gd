@@ -1,7 +1,7 @@
 extends CelestialArea
 class_name WhiteHole
 
-const CAPTURE_METHOD = "_on_collide_with_whitehole"
+const CAPTURE_METHOD = "_on_collide_with_whitehole" # takes 1 Vector2 arg, for center
 
 onready var wave_sequencer = $WaveSequencer
 
@@ -30,7 +30,7 @@ func _on_body_entered(body: Node):
 		
 	if planet.has_method(CAPTURE_METHOD):
 		print("CALLING WHITEHOLE CAPTURE")
-		planet.call(CAPTURE_METHOD)
+		planet.call(CAPTURE_METHOD, self.position)
 		
 	
 func _on_level_state_changed(event: Event):
