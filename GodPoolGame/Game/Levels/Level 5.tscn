@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://GodPoolGame/TestSubjects/BlackHole.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GodPoolGame/Game/Entities/WhiteHole.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GodPoolGame/Game/Entities/CelestialCueBall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GodPoolGame/Game/Entities/Planet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GodPoolGame/Game/Levels/Level.gd" type="Script" id=5]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.3
+bounce = 0.69
+
+[node name="Level 5" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="WhiteHole" parent="Entities" instance=ExtResource( 2 )]
+position = Vector2( 1324, 484 )
+
+[node name="CelestialCueBall" parent="Entities" instance=ExtResource( 3 )]
+position = Vector2( 619, 493 )
+physics_material_override = SubResource( 1 )
+
+[node name="BlackHole" parent="Entities" instance=ExtResource( 1 )]
+position = Vector2( 1077, 492 )
+
+[node name="Planet" parent="Entities" instance=ExtResource( 4 )]
+position = Vector2( 811, 372 )
+population = 100
+
+[node name="Planet2" parent="Entities" instance=ExtResource( 4 )]
+position = Vector2( 811, 568 )
+population = 100
