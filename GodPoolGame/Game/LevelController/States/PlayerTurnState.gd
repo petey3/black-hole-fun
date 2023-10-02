@@ -11,7 +11,7 @@ func _ready():
 
 func enter(properties := {}) -> void:
 	print("Entered PLAYER TURN STATE")
-	print("TODO: Update New Universe Line")
+	has_player_shot = false
 	var level_state_event = LevelStateChangeEvent.new(ID, true)
 	EventServices.dispatch().broadcast(level_state_event)
 	
