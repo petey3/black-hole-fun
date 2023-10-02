@@ -9,6 +9,7 @@ func register_current_level(level: Level):
 	level.level_entity_info = level_entity_info
 	self.current_level = level
 
+
 func create_level_info() -> LevelEntityInfo:
 	var starting_live_planets = remaining_live_planet_count()
 	var starting_dead_planets = remaining_dead_planet_count()
@@ -20,7 +21,8 @@ func create_level_info() -> LevelEntityInfo:
 	
 	
 func get_level_entity_info() -> LevelEntityInfo:
-	if not current_level:
+	if not current_level or not is_instance_valid(current_level):
+		current_level = null
 		return null
 		
 	return current_level.level_entity_info
@@ -58,6 +60,7 @@ func _on_planet_change_event(event: Event):
 
 func _on_reloaded_scene_event(event: Event):
 	clear_registered_level()
+
 
 func get_all_planets() -> Array:
 	return get_tree().get_nodes_in_group(GodPoolGameConstants.GROUP_ID_PLANET)

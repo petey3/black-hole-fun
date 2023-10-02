@@ -3,6 +3,7 @@ extends Node2D
 var level_list: Array = [
 	preload("res://GodPoolGame/Game/Levels/Level 1.tscn"),
 	preload("res://GodPoolGame/Game/Levels/Level 2.tscn"),
+	preload("res://GodPoolGame/Game/Levels/Level 3.tscn"),
 ] 
 
 var current_level = 0

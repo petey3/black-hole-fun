@@ -43,7 +43,7 @@ func _ready():
 	sprite_face.texture = faces[randi() % 5]
 	
 	if population == 0:
-		sprite.visible = false
+		sprite_face.visible = false
 	
 	idle_rotation_value = Random.randf_range(10.0, 20.0)
 	random_rotation_offset = Random.randf_range(idle_rotation_value * -1, idle_rotation_value)
