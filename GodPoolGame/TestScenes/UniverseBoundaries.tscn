@@ -29,7 +29,7 @@ collision_mask = 3
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UniverseRoot/TopHalf"]
 scale = Vector2( 1.875, 1.875 )
 build_mode = 1
-polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 310, 906, 310, 889, 158, 709, 67, 300, 78, 91, 213, 106.133, 287.467, 0, 313 )
+polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 310, 893.867, 307.733, 874.133, 155.2, 707.733, 68.8, 322.667, 76.2667, 113.067, 222.4, 1.6, 224 )
 
 [node name="BottomHalf" type="StaticBody2D" parent="UniverseRoot"]
 position = Vector2( 0, 1080 )
@@ -39,7 +39,7 @@ collision_mask = 3
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UniverseRoot/BottomHalf"]
 scale = Vector2( 1.875, 1.875 )
 build_mode = 1
-polygon = PoolVector2Array( 0, 0, 0, -300, 108, -289, 132, -153, 565, -56, 787, -165, 907, -292, 1025, -290, 1027, 0 )
+polygon = PoolVector2Array( 0, 0, -0.533333, -385.067, 128, -386.133, 171.2, -150.4, 568.533, -60.2667, 787, -165, 907, -292, 1025, -290, 1027, 0 )
 
 [node name="InnerSpaceMask" type="Polygon2D" parent="UniverseRoot"]
 position = Vector2( 27, 164 )
@@ -50,7 +50,7 @@ texture_scale = Vector2( 1.3, 1.3 )
 polygon = PoolVector2Array( 554.841, 653.723, 117.857, 508.631, 79.1092, 191.845, 289.529, -14.5093, 699.067, -31.4368, 882.579, 106.401, 896.033, 303.889, 779.253, 488.479 )
 
 [node name="Border" type="Node2D" parent="UniverseRoot"]
-position = Vector2( 1003, 515 )
+position = Vector2( 1000, 508 )
 scale = Vector2( 1.35, 1.35 )
 
 [node name="Layer1" type="Sprite" parent="UniverseRoot/Border"]
