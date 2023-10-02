@@ -382,7 +382,7 @@ _global_script_classes=[ {
 "base": "CelestialArea",
 "class": "WhiteHole",
 "language": "GDScript",
-"path": "res://WhiteHole.gd"
+"path": "res://GodPoolGame/Game/Entities/WhiteHole.gd"
 }, {
 "base": "State",
 "class": "WinConditionMetState",

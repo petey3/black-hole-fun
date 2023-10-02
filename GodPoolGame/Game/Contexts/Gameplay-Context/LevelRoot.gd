@@ -15,6 +15,7 @@ func _ready():
 	EventServices.dispatch().subscribe(LoadNewLevelEvent.ID, self, "_on_new_level_event")
 	EventServices.dispatch().subscribe(NextLevelEvent.ID, self, "_on_next_level_event")
 
+
 func _load_level(level_to_load):
 	if level_to_load + 1 > level_list.size():
 		level_to_load =  0
@@ -30,6 +31,7 @@ func _load_level(level_to_load):
 
 func _on_reload_scene_event(event: Event):
 	_load_level(current_level)
+
 
 func _on_new_level_event(event: Event):
 	var new_level_event := event as LoadNewLevelEvent
